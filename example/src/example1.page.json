@@ -1,0 +1,76 @@
+{
+  "_id": "5c91b4a722ef404da9298564",
+  "isTemplate": false,
+  "workspace": "5c91b4c11dd5438849a338b5",
+  "path": "/about",
+  "subPath": "",
+  "fromPageContent": null,
+  "globalWidgets": [],
+  "layout": {
+    "boxed": true,
+    "marginUnit": "px",
+    "paddingUnit": "px",
+    "marginTop": 0,
+    "marginRight": 0,
+    "marginBottom": 0,
+    "marginLeft": 0,
+    "paddingTop": 0,
+    "paddingRight": 0,
+    "paddingBottom": 0,
+    "paddingLeft": 0
+  },
+  "widgets": [
+    {
+      "_id": "5c91b505c4a234e3afbc85f4",
+      "idx": null,
+      "layout": {
+        "marginUnit": "px",
+        "paddingUnit": "px",
+        "marginTop": 0,
+        "marginRight": 0,
+        "marginBottom": 0,
+        "marginLeft": 0,
+        "paddingTop": 30,
+        "paddingRight": 30,
+        "paddingBottom": 30,
+        "paddingLeft": 30
+      },
+      "inlineStyle": "",
+      "userPermission": {
+        "delete": true,
+        "edit": true,
+        "move": true
+      },
+      "hidden": false,
+      "mobileHidden": false,
+      "anchor": {
+        "hash": "about",
+        "top": 0
+      },
+      "type": "layoutBuilder",
+      "data": {
+        "columns": 3,
+        "widgets": {
+          "0": [
+            {
+              "_id": "5c91b90ed3341f066f62a03a",
+              "type": "text",
+              "data": {
+                "text": "This is a test text texas textile"
+              }
+            }
+          ],
+          "1": [
+            {
+              "_id": "5c92153a31b921253c960050",
+              "type": "text",
+              "data": {
+                "text": "This is more text for all the text lovers out there"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

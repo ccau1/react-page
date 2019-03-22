@@ -1,0 +1,212 @@
+.page_editor {
+  font-family: Arial, Helvetica, sans-serif;
+}
+.page_editor button {
+  padding: 10px 10px;
+  background-color: #fff;
+  border: 1px solid #d6d1d1;
+  outline: none;
+}
+.page_editor button:active {
+  background-color: #f9f9f9;
+}
+.page_editor textarea {
+  background: transparent;
+}
+
+.page_editor_widgets_list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.page_editor_widgets_list_item {
+  padding: 20px;
+  margin: 20px;
+  border: 1px solid #d6d1d1;
+  cursor: pointer;
+}
+
+/* add css styles here (optional) */
+
+.page_editor {
+  display: flex;
+  height: 100%;
+  background-color: #eeeeee;
+}
+
+.page_editor_layout {
+  flex: 1;
+}
+
+.page_editor_layout_inner {
+  background-color: white;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+}
+
+.page_editor_layout_inner.boxed {
+  width: 1000px;
+  max-width: 100%;
+  margin: 40px auto;
+}
+
+.page_editor_left_panel {
+  width: 300px;
+  max-width: 100%;
+  background-color: #e7e7e7;
+  border-right: 1px solid #bfbebe;
+}
+
+.page_editor_widgets_overview_widget {
+  background-color: #d3fff9;
+  border: 1px solid #b8e2dc;
+  margin: 10px;
+  padding: 2px;
+  cursor: pointer;
+}
+
+.page_editor_widgets_overview_widget.hover {
+  background-color: #f1fffd;
+  border: 1px solid #daefec;
+}
+
+.page_editor_hoverable {
+  transition: opacity 200ms;
+}
+.hover_inactive {
+  opacity: 0.4;
+}
+.page_editor_widget > .page_editor_widget_layout > .page_editor_widget_control {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 700ms, opacity 700ms;
+}
+.page_editor_widget:hover
+  > .page_editor_widget_layout
+  > .page_editor_widget_control {
+  opacity: 1;
+  visibility: visible;
+}
+.page_editor_widget_control {
+  position: absolute;
+  top: -30px;
+  left: 0;
+}
+.page_editor_widget {
+  position: relative;
+}
+
+.page_editor_widget_form {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  flex: 1;
+}
+.page_editor_widget_form_header {
+  padding: 10px 20px;
+  border-bottom: 1px solid #e0e0e0;
+}
+.page_editor_widget_form_header h1 {
+  margin: 0;
+}
+.page_editor_widget_form_content {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  flex: 1;
+}
+.page_editor_widget_form_left {
+  flex: 1;
+  padding: 30px 20px;
+}
+.page_editor_widget_form_right {
+  width: 250px;
+  background-color: #eeeeee;
+  padding: 10px;
+  box-sizing: border-box;
+}
+.page_editor_widget_form_right h3 {
+  font-weight: bold;
+}
+.page_editor_widget_form_right h3 a {
+  font-weight: normal;
+  font-size: 10pt;
+  color: blue;
+  cursor: pointer;
+  padding: 0 5px;
+}
+
+.widget-form-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.05);
+}
+.widget-form-modal-container {
+  width: 1000px;
+  max-width: 100%;
+  margin: 0 auto;
+  min-height: 600px;
+  max-height: 100%;
+  background-color: #fff;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  outline: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+}
+
+.page_editor_widget_layout_form .edge_input_container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.page_editor_widget_layout_form .edge_input_container input {
+  flex: 1;
+  width: 1px;
+  min-width: auto;
+  position: relative;
+  border: 2px solid transparent;
+  box-sizing: border-box;
+  margin: 0 1px;
+}
+.page_editor_widget_layout_form input.edge_top {
+  border-top: 2px solid blue;
+}
+.page_editor_widget_layout_form input.edge_right {
+  border-right: 2px solid blue;
+}
+.page_editor_widget_layout_form input.edge_bottom {
+  border-bottom: 2px solid blue;
+}
+.page_editor_widget_layout_form input.edge_left {
+  border-left: 2px solid blue;
+}
+
+.form_field_horizontal {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 0;
+}
+/* widgets */
+
+.widget_text_editor {
+  border: none;
+  outline: none;
+  resize: none;
+  width: 100%;
+}
+.widget_text_form_text {
+  border: none;
+  border-bottom: 1px solid #eeeeee;
+  outline: none;
+  resize: none;
+  width: 100%;
+}
