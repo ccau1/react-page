@@ -5,15 +5,19 @@ import display from "./display";
 import { newWidget } from "../utils";
 
 export default {
-  key: "text",
-  name: "Text",
+  key: "image",
+  name: "Image",
   editor,
   editorControl,
   new: (obj?: Widget): Widget => {
     return newWidget({
-      type: "text",
+      type: "image",
       data: {
-        text: ""
+        src: "",
+        width: "500px",
+        height: "500px",
+        fit: "cover",
+        position: "center"
       },
       ...obj
     });

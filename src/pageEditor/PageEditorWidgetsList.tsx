@@ -25,6 +25,7 @@ export class PageEditorWidgetsList extends React.Component<
           <div className={`page_editor_widgets_list`}>
             {getWidgetTypes().map((widgetType: WidgetIndex) => (
               <div
+                key={widgetType.key}
                 className={`page_editor_widgets_list_item`}
                 onClick={() => onSelect(widgetType)}
               >

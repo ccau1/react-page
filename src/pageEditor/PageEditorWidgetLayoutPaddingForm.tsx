@@ -32,6 +32,7 @@ export class PageEditorWidgetLayoutPaddingForm extends React.Component<
         <h3>
           Padding{" "}
           <select
+            value={layout.paddingUnit}
             onChange={ev =>
               onChange({
                 ...widget,

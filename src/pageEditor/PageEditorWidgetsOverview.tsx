@@ -9,7 +9,8 @@ import {
   DropTarget,
   DropTargetMonitor,
   DropTargetConnector,
-  DndComponentClass
+  DndComponentClass,
+  ConnectDropTarget
 } from "react-dnd";
 
 export type PageEditorWidgetsOverviewProps = {
@@ -52,7 +53,10 @@ export const PageEditorWidgetsOverviewDroppable: DndComponentClass<
       // monitor: DropTargetMonitor
       {
         return true;
-      }
+      },
+    hover: () => {
+      console.log("overview hover!!!");
+    }
   },
   (connect: DropTargetConnector, monitor: DropTargetMonitor) => {
     return {
@@ -66,4 +70,23 @@ export const PageEditorWidgetsOverviewDroppable: DndComponentClass<
       itemType: monitor.getItemType()
     };
   }
-)(PageEditorWidgetsOverview);
+)(
+  class PageEditorWidgetsOverviewDroppableWrapper extends React.Component<
+    {
+      connectDropTarget: ConnectDropTarget;
+      isOver: boolean;
+      isOverCurrent: boolean;
+      canDrop: boolean;
+      itemType: string;
+    } & PageEditorWidgetsOverviewProps
+  > {
+    render() {
+      const { connectDropTarget, ...rest } = this.props;
+      return connectDropTarget(
+        <div>
+          <PageEditorWidgetsOverview {...rest} />
+        </div>
+      );
+    }
+  }
+);

@@ -1,21 +1,20 @@
 /**
- * @class TextEditor
+ * @class ImageEditor
  */
 
 import * as React from "react";
-import TextareaAutosize from "react-textarea-autosize";
 import WidgetFormContext, {
   WidgetFormProviderState
 } from "../../contexts/WidgetFormContext";
 
 // import styles from "./styles.css";
 
-export type TextEditorProps = {
+export type ImageEditorProps = {
   widget: Widget;
   onChange: { (newWidget: Widget): void };
 };
 
-export default class TextEditor extends React.Component<TextEditorProps> {
+export default class ImageEditor extends React.Component<ImageEditorProps> {
   height = 0;
 
   autoGrow = (element: any) => {
@@ -27,22 +26,22 @@ export default class TextEditor extends React.Component<TextEditorProps> {
     const { widget, onChange } = this.props;
     const {
       _id,
-      data: { text }
+      data: { src, fit, position }
     } = widget;
     return (
       <WidgetFormContext.Consumer>
         {({ openForm }: WidgetFormProviderState) => (
-          <TextareaAutosize
-            className="widget_text_editor"
-            value={text}
-            onDoubleClick={() => openForm(_id, onChange)}
-            onChange={(ev: any) =>
-              onChange({
-                ...widget,
-                data: { ...widget.data, text: ev.target.value }
-              })
-            }
-          />
+          <div
+            className="widget_image_editor"
+            style={{
+              backgroundImage: `url("${src}")`,
+              backgroundSize: fit,
+              backgroundPosition: position
+            }}
+            onClick={() => openForm(_id, onChange)}
+          >
+            <img src={src} className={`widget_image_editor_image`} />
+          </div>
         )}
       </WidgetFormContext.Consumer>
     );

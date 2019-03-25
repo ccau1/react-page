@@ -57,7 +57,7 @@ class WidgetFormProvider extends React.PureComponent<WidgetFormProviderProps> {
       : null;
     return (
       <WidgetContext.Consumer>
-        {({ updateWidget }: WidgetProviderState) => (
+        {({ updateWidget, deleteWidget }: WidgetProviderState) => (
           <WidgetFormContext.Provider value={this.state}>
             <React.Fragment>
               {this.props.children}
@@ -65,7 +65,7 @@ class WidgetFormProvider extends React.PureComponent<WidgetFormProviderProps> {
                 isOpen={this.state.isOpen}
                 appElement={document.getElementById("root")}
                 className={{
-                  base: "widget-form-modal-container",
+                  base: "widget-form-modal-container page_base",
                   afterOpen: "after-open",
                   beforeClose: "before-close"
                 }}
@@ -83,6 +83,10 @@ class WidgetFormProvider extends React.PureComponent<WidgetFormProviderProps> {
                       if (this.state.currentOnChange) {
                         this.state.currentOnChange(newWidget);
                       }
+                    }}
+                    onDelete={widget => {
+                      this.state.closeForm();
+                      deleteWidget(widget._id);
                     }}
                   />
                 )}

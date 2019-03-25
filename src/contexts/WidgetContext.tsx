@@ -27,6 +27,7 @@ export type WidgetProviderState = {
   getWidgetTypeByKey: { (key: string): WidgetIndex };
 
   updateWidget: { (widget: Widget): void };
+  deleteWidget: { (widgetId: string): void };
 };
 
 class WidgetProvider extends React.PureComponent<WidgetProviderProps> {
@@ -63,6 +64,23 @@ class WidgetProvider extends React.PureComponent<WidgetProviderProps> {
           if (widget_._id === widget._id) {
             stopSearch();
             return widget;
+          }
+          return widget_;
+        },
+        this.state.widgetTypes
+      );
+
+      this.props.onWidgetsChange(newWidgets);
+    },
+    deleteWidget: (widgetId: string): void => {
+      const newWidgets = widgetsTransform(
+        [...this.props.widgets],
+        (widget_: Widget, stopSearch: { (): void }): Widget | null => {
+          console.log("deleting transformFn", widget_);
+
+          if (widget_._id === widgetId) {
+            stopSearch();
+            return null;
           }
           return widget_;
         },

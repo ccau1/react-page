@@ -7,7 +7,13 @@ import {
   DragSource,
   DragSourceConnector,
   DragSourceMonitor,
-  DndComponentClass
+  DndComponentClass,
+  ConnectDropTarget,
+  ConnectDragSource,
+  DropTargetConnector,
+  DropTarget,
+  DropTargetMonitor,
+  XYCoord
 } from "react-dnd";
 
 import { widgets as widgetTypes } from "../widgets";
@@ -16,6 +22,7 @@ import HoverContext, { HoverProviderState } from "../contexts/HoverContext";
 import WidgetFormContext, {
   WidgetFormProviderState
 } from "../contexts/WidgetFormContext";
+import { findDOMNode } from "react-dom";
 
 export type PageEditorWidgetsOverviewWidgetProps = {
   widget: Widget;
@@ -75,34 +82,113 @@ export class PageEditorWidgetsOverviewWidget extends React.Component<
 
 export const PageEditorWidgetsOverviewWidgetDraggable: DndComponentClass<
   any
-> = DragSource(
+> = DropTarget(
   "overview_widget",
   {
-    beginDrag: (props: PageEditorWidgetsOverviewWidgetProps) => {
-      return { widget: props.widget };
+    hover: (
+      props: PageEditorWidgetsOverviewWidgetProps,
+      monitor: DropTargetMonitor,
+      component: PageEditorWidgetsOverviewWidget | null
+    ): void => {
+      if (!component) {
+        return;
+      }
+      const dragWidget = monitor.getItem().widget;
+      const hoverWidget = props.widget;
+
+      // Don't replace items with themselves
+      if (dragWidget._id === hoverWidget._id) {
+        return;
+      }
+
+      // Determine rectangle on screen
+      const hoverBoundingRect = (findDOMNode(
+        component
+      ) as Element).getBoundingClientRect();
+
+      // Get vertical middle
+      const hoverMiddleY =
+        (hoverBoundingRect.bottom - hoverBoundingRect.top) / 2;
+
+      // Determine mouse position
+      const clientOffset = monitor.getClientOffset();
+
+      // Get pixels to the top
+      const hoverClientY = (clientOffset as XYCoord).y - hoverBoundingRect.top;
+
+      // Only perform the move when the mouse has crossed half of the items height
+      // When dragging downwards, only move when the cursor is below 50%
+      // When dragging upwards, only move when the cursor is above 50%
+      console.log(
+        "hovering",
+        hoverMiddleY,
+        hoverClientY,
+        clientOffset,
+        hoverWidget,
+        dragWidget
+      );
+
+      // // Dragging downwards
+      // if (dragIndex < hoverIndex && hoverClientY < hoverMiddleY) {
+      //   return;
+      // }
+
+      // // Dragging upwards
+      // if (dragIndex > hoverIndex && hoverClientY > hoverMiddleY) {
+      //   return;
+      // }
+
+      // // Time to actually perform the action
+      // props.moveCard(dragIndex, hoverIndex);
+
+      // Note: we're mutating the monitor item here!
+      // Generally it's better to avoid mutations,
+      // but it's good here for the sake of performance
+      // to avoid expensive index searches.
+      // monitor.getItem().widget = hoverWidget;
     }
   },
-  (connect: DragSourceConnector, monitor: DragSourceMonitor) => ({
-    connectDragSource: connect.dragSource(),
-    isDragging: monitor.isDragging()
+  (connect: DropTargetConnector) => ({
+    connectDropTarget: connect.dropTarget()
   })
 )(
-  class PageEditorWidgetsOverviewWidgetDraggableWrapper extends React.Component<{
-    connectDragSource: any;
-    isDragging: boolean;
-    children: any;
-    widget: Widget;
-    onChange: { (newWidget: Widget): void };
-  }> {
-    render() {
-      const { connectDragSource, isDragging, ...rest } = this.props;
-      console.log("isDragging", isDragging, connectDragSource);
+  DragSource(
+    "overview_widget",
+    {
+      beginDrag: (props: PageEditorWidgetsOverviewWidgetProps) => {
+        return { widget: props.widget };
+      }
+    },
+    (connect: DragSourceConnector, monitor: DragSourceMonitor) => ({
+      connectDragSource: connect.dragSource(),
+      isDragging: monitor.isDragging()
+    })
+  )(
+    class PageEditorWidgetsOverviewWidgetDraggableWrapper extends React.Component<{
+      connectDragSource: ConnectDragSource;
+      connectDropTarget: ConnectDropTarget;
+      isDragging: boolean;
+      children: any;
+      widget: Widget;
+      onChange: { (newWidget: Widget): void };
+    }> {
+      render() {
+        const {
+          connectDragSource,
+          connectDropTarget,
+          isDragging,
+          ...rest
+        } = this.props;
+        console.log("isDragging", isDragging, connectDragSource);
 
-      return connectDragSource(
-        <div style={{ opacity: isDragging ? 0.5 : 1 }}>
-          <PageEditorWidgetsOverviewWidget {...rest} />
-        </div>
-      );
+        return connectDragSource(
+          connectDropTarget!(
+            <div style={{ opacity: isDragging ? 0.5 : 1 }}>
+              <PageEditorWidgetsOverviewWidget {...rest} />
+            </div>
+          )
+        );
+      }
     }
-  }
+  )
 );

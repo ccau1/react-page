@@ -11,13 +11,14 @@ import { PageEditorWidgetLayoutForm } from "./PageEditorWidgetLayoutForm";
 export type PageEditorWidgetFormProps = {
   widget: Widget;
   onChange: { (newWidget: Widget): void };
+  onDelete: { (widget: Widget): void };
 };
 
 export class PageEditorWidgetForm extends React.Component<
   PageEditorWidgetFormProps
 > {
   render() {
-    const { widget, onChange } = this.props;
+    const { widget, onChange, onDelete } = this.props;
     console.log("PageEditorWidgetForm", widget, onChange);
     if (!widget) {
       return <div>no widget selected</div>;
@@ -45,6 +46,17 @@ export class PageEditorWidgetForm extends React.Component<
           <div className={`page_editor_widget_form_right`}>
             <PageEditorWidgetLayoutForm widget={widget} onChange={onChange} />
           </div>
+        </div>
+        <div className={`page_editor_widget_form_footer`}>
+          <div className={`page_editor_widget_form_footer_left`}>
+            <a
+              className={`page_editor_widget_form_delete_button`}
+              onClick={() => onDelete(widget)}
+            >
+              Delete
+            </a>
+          </div>
+          <div className={`page_editor_widget_form_footer_right`} />
         </div>
       </div>
     );

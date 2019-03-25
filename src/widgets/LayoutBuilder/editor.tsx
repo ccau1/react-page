@@ -25,12 +25,19 @@ export default class LayoutBuilderEditor extends React.Component<
     );
 
     return (
-      <div
-        className={`widget_layoutBuilder_editor`}
-        style={{ display: "flex", flexWrap: "wrap" }}
-      >
-        {Array.from(Array(widget.data.columns).keys()).map(column => (
-          <div key={column} style={{ flex: 1, position: "relative" }}>
+      <div className={`widget_layout_builder_editor`}>
+        {Array.from(
+          Array(
+            widget.data.columns === "" ? 0 : parseInt(widget.data.columns)
+          ).keys()
+        ).map(column => (
+          <div
+            key={column}
+            className={"widget_layout_builder_editor_column"}
+            style={{
+              width: `${widget.data.columnWidths[column]}%`
+            }}
+          >
             <PageEditorWidgets
               widgets={widget.data.widgets[column] || []}
               onChange={newWidgets => {
@@ -48,6 +55,7 @@ export default class LayoutBuilderEditor extends React.Component<
             />
           </div>
         ))}
+        <div style={{ clear: "both" }} />
       </div>
     );
   }

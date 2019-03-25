@@ -118,6 +118,7 @@ export class PageEditorWidgetLayoutBackgroundForm extends React.Component<
             <div className={`form_field_horizontal`}>
               <label>Size:</label>
               <select
+                value={layout.backgroundSize}
                 onChange={ev =>
                   onChange({
                     ...widget,
@@ -126,7 +127,12 @@ export class PageEditorWidgetLayoutBackgroundForm extends React.Component<
                 }
               >
                 <option value="cover">cover</option>
-                <option value="contain">contain</option>
+                <option
+                  value="contain"
+                  selected={layout.backgroundSize === "contain"}
+                >
+                  contain
+                </option>
               </select>
             </div>
           </div>

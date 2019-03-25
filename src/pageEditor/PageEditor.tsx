@@ -11,6 +11,7 @@ import WidgetFormContext from "../contexts/WidgetFormContext";
 import { PageEditorAddWidgetButton } from "./PageEditorAddWidgetButton";
 import WidgetContext from "../contexts/WidgetContext";
 import withDragDropContext from "../contexts/withDragDropContext";
+import WidgetListModalContext from "../contexts/WidgetListModalContext";
 
 export type PageEditorProps = {
   page: Page;
@@ -31,42 +32,47 @@ export const PageEditor = withDragDropContext(
             onChange({ ...page, widgets: newWidgets })
           }
         >
-          <WidgetFormContext.Provider page={page}>
-            <HoverContext.Provider>
-              <div className={`page_editor`} style={{ display: "flex" }}>
-                <div className={"page_editor_left_panel"}>
-                  <PageEditorAddWidgetButton
-                    onCreate={newWidget =>
-                      onChange({
-                        ...page,
-                        widgets: [...page.widgets, newWidget]
-                      })
-                    }
-                  />
-                  <PageEditorWidgetsOverviewDroppable
-                    widgets={page.widgets}
-                    onChange={(newWidgets: Widget[]) => {
-                      console.log(
-                        "page editor overview change",
-                        newWidgets,
-                        onChange
-                      );
+          <WidgetListModalContext.Provider>
+            <WidgetFormContext.Provider page={page}>
+              <HoverContext.Provider>
+                <div
+                  className={`page_base page_editor`}
+                  style={{ display: "flex" }}
+                >
+                  <div className={"page_editor_left_panel"}>
+                    <PageEditorAddWidgetButton
+                      onCreate={newWidget =>
+                        onChange({
+                          ...page,
+                          widgets: [...page.widgets, newWidget]
+                        })
+                      }
+                    />
+                    <PageEditorWidgetsOverviewDroppable
+                      widgets={page.widgets}
+                      onChange={(newWidgets: Widget[]) => {
+                        console.log(
+                          "page editor overview change",
+                          newWidgets,
+                          onChange
+                        );
 
-                      onChange({ ...page, widgets: newWidgets });
-                    }}
-                  />
+                        onChange({ ...page, widgets: newWidgets });
+                      }}
+                    />
+                  </div>
+                  <PageEditorLayout page={page}>
+                    <PageEditorWidgets
+                      widgets={page.widgets}
+                      onChange={newWidgets =>
+                        onChange({ ...page, widgets: newWidgets })
+                      }
+                    />
+                  </PageEditorLayout>
                 </div>
-                <PageEditorLayout page={page}>
-                  <PageEditorWidgets
-                    widgets={page.widgets}
-                    onChange={newWidgets =>
-                      onChange({ ...page, widgets: newWidgets })
-                    }
-                  />
-                </PageEditorLayout>
-              </div>
-            </HoverContext.Provider>
-          </WidgetFormContext.Provider>
+              </HoverContext.Provider>
+            </WidgetFormContext.Provider>
+          </WidgetListModalContext.Provider>
         </WidgetContext.Provider>
       );
     }

@@ -36,7 +36,9 @@ declare type WidgetIndex = {
   transformSubWidgets?: {
     (
       widget: Widget,
-      transformFn: { (widget: Widget, stopSearch?: { (): void }): Widget },
+      transformFn: {
+        (widget: Widget, stopSearch?: { (): void }): Widget | null;
+      },
       widgetTypes: { [type: string]: WidgetIndex }
     ): Widget;
   };

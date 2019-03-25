@@ -50,6 +50,12 @@
       "type": "layoutBuilder",
       "data": {
         "columns": 3,
+        "columnWidths": {
+          "0": 33.33,
+          "1": 33.33,
+          "2": 33.33
+        },
+        "columnRatio": "even",
         "widgets": {
           "0": [
             {

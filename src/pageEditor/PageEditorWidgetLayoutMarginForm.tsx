@@ -32,6 +32,7 @@ export class PageEditorWidgetLayoutMarginForm extends React.Component<
         <h3>
           Margin{" "}
           <select
+            value={layout.marginUnit}
             onChange={ev =>
               onChange({
                 ...widget,

@@ -1,50 +1,27 @@
-import ObjectID from "bson-objectid";
 import editor from "./editor";
 import display from "./display";
 import overview from "./overview";
-import { getWidget, widgetsTransform } from "../utils";
+import form from "./form";
+import { getWidget, widgetsTransform, newWidget } from "../utils";
 
 export default {
   key: "layoutBuilder",
   name: "Layout Builder",
+  form,
   editor,
   display,
   overview,
   new: (obj?: Widget): Widget => {
-    return {
-      _id: new ObjectID().toHexString(),
-      idx: undefined,
-      layout: {
-        marginUnit: "px",
-        paddingUnit: "px",
-        marginTop: "0",
-        marginRight: "0",
-        marginBottom: "0",
-        marginLeft: "0",
-        paddingTop: "30",
-        paddingRight: "30",
-        paddingBottom: "30",
-        paddingLeft: "30"
-      },
-      inlineStyle: "",
-      userPermission: {
-        delete: true,
-        edit: true,
-        move: true
-      },
-      hidden: false,
-      mobileHidden: false,
-      anchor: {
-        hash: "about",
-        top: 0
-      },
+    return newWidget({
       type: "layoutBuilder",
       data: {
         columns: 3,
+        columnWidths: { "0": 33.33, "1": 33.33, "2": 33.33 },
+        columnRatio: "even",
         widgets: {}
       },
       ...obj
-    };
+    });
   },
   // this method is for if this widget can have sub-widgets
   getWidget: (widget: Widget, widgetId: string): Widget | null => {

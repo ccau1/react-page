@@ -6,6 +6,7 @@ import * as React from "react";
 import { PageEditorWidgetLayoutBackgroundForm } from "./PageEditorWidgetLayoutBackgroundForm";
 import { PageEditorWidgetLayoutMarginForm } from "./PageEditorWidgetLayoutMarginForm";
 import { PageEditorWidgetLayoutPaddingForm } from "./PageEditorWidgetLayoutPaddingForm";
+import { PageEditorWidgetLayoutInlineStyleForm } from "./PageEditorWidgetLayoutInlineStyleForm";
 // import { widgets } from "../widgets";
 
 // import styles from "./styles.css";
@@ -32,6 +33,10 @@ export class PageEditorWidgetLayoutForm extends React.Component<
           onChange={onChange}
         />
         <PageEditorWidgetLayoutBackgroundForm
+          widget={widget}
+          onChange={onChange}
+        />
+        <PageEditorWidgetLayoutInlineStyleForm
           widget={widget}
           onChange={onChange}
         />

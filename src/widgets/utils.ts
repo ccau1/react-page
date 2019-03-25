@@ -1,4 +1,5 @@
 import { widgets as widgetTypes } from "./";
+import ObjectID from "bson-objectid";
 
 export const defaultWidgetLayout: Layout = {
   marginUnit: "px",
@@ -15,6 +16,29 @@ export const defaultWidgetLayout: Layout = {
   backgroundColor: "#fff",
   backgroundUri: "",
   backgroundSize: "cover"
+};
+
+export const newWidget = (obj?: any): Widget => {
+  return {
+    _id: new ObjectID().toHexString(),
+    idx: undefined,
+    inlineStyle: "",
+    userPermission: {
+      delete: true,
+      edit: true,
+      move: true
+    },
+    hidden: false,
+    mobileHidden: false,
+    anchor: {
+      hash: "about",
+      top: 0
+    },
+    layout: {},
+    type: "",
+    data: {},
+    ...obj
+  };
 };
 
 export const getWidget = (
@@ -69,31 +93,45 @@ export const getWidgetLayoutStyle = (widget: Widget): any => {
 
 export const widgetsTransform = (
   widgets: Widget[],
-  transformFn: { (widget: Widget, stopSearch: { (): void }): Widget },
+  // if return object is null, that means delete
+  transformFn: { (widget: Widget, stopSearch: { (): void }): Widget | null },
   widgetTypes: {
     [key: string]: WidgetIndex;
   }
 ): Widget[] => {
   // indicator for whether tree loop can be stopped
   let shouldStop = false;
-  for (let i = 0; i < widgets.length; i++) {
-    widgets[i] = transformFn(widgets[i], () => {
+  // looping from last to avoid
+  // delete affecting rest of loop
+  for (let i = widgets.length - 1; i >= 0; i--) {
+    const transformResult: Widget | null = transformFn(widgets[i], () => {
       // set stop looping to true
       shouldStop = true;
     });
+    //
+    if (transformResult === null) {
+      // if transformResult is null, that means delete widget
+      widgets.splice(i, 1);
+    } else {
+      // if transformResult is not null, that means update widget
+      widgets[i] = transformResult;
+    }
     // if shouldStop, return widgets now
     if (shouldStop) {
       return widgets;
     }
-    // get wigetType from wiget
-    const widgetType = widgetTypes[widgets[i].type];
-    // if widget has method transformSubWidgets, call it
-    if (widgetType && widgetType.transformSubWidgets) {
-      widgets[i] = widgetType.transformSubWidgets(
-        widgets[i],
-        transformFn,
-        widgetTypes
-      );
+    // if widget has not been deleted, continue
+    if (widgets[i]) {
+      // get wigetType from wiget
+      const widgetType = widgetTypes[widgets[i].type];
+      // if widget has method transformSubWidgets, call it
+      if (widgetType && widgetType.transformSubWidgets) {
+        widgets[i] = widgetType.transformSubWidgets(
+          widgets[i],
+          transformFn,
+          widgetTypes
+        );
+      }
     }
   }
   return widgets;
