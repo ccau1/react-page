@@ -57,7 +57,12 @@ class WidgetFormProvider extends React.PureComponent<WidgetFormProviderProps> {
       : null;
     return (
       <WidgetContext.Consumer>
-        {({ updateWidget, deleteWidget }: WidgetProviderState) => (
+        {({
+          updateWidget,
+          deleteWidget,
+          moveWidget,
+          cloneWidget
+        }: WidgetProviderState) => (
           <WidgetFormContext.Provider value={this.state}>
             <React.Fragment>
               {this.props.children}
@@ -87,6 +92,15 @@ class WidgetFormProvider extends React.PureComponent<WidgetFormProviderProps> {
                     onDelete={widget => {
                       this.state.closeForm();
                       deleteWidget(widget._id);
+                    }}
+                    onDuplicate={widget => {
+                      this.state.closeForm();
+                      const clonedWidget = cloneWidget(widget);
+                      moveWidget({
+                        widget: clonedWidget,
+                        toWidget: widget,
+                        add: true
+                      });
                     }}
                   />
                 )}

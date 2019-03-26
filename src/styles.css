@@ -73,6 +73,13 @@
   flex-direction: column;
 }
 
+.page_editor_widgets_overview_widget_draggable_wrapper {
+  transition: opacity 100ms;
+}
+.page_editor_widgets_overview_widget_draggable_wrapper.isDragging {
+  opacity: 0.5;
+}
+
 .page_editor_widgets_overview_widget {
   background-color: #d3fff9;
   border: 1px solid #b8e2dc;
@@ -180,6 +187,11 @@
   color: #f00;
   cursor: pointer;
 }
+.page_editor_widget_form_duplicate_button {
+  color: rgba(0, 0, 0, 0.9);
+  cursor: pointer;
+  padding: 0 10px;
+}
 
 .widget-form-modal-overlay {
   position: fixed;
@@ -235,6 +247,9 @@
 }
 .page_editor_widget_layout_inline_style_form {
   position: relative;
+}
+.page_editor_widget_layout_inline_style_form textarea {
+  min-height: 50px;
 }
 
 .form_field_horizontal {

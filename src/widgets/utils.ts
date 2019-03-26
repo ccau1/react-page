@@ -18,9 +18,13 @@ export const defaultWidgetLayout: Layout = {
   backgroundSize: "cover"
 };
 
+export const newID = (): string => {
+  return new ObjectID().toHexString();
+};
+
 export const newWidget = (obj?: any): Widget => {
   return {
-    _id: new ObjectID().toHexString(),
+    _id: newID(),
     position: "",
     inlineStyle: "",
     userPermission: {
@@ -31,7 +35,7 @@ export const newWidget = (obj?: any): Widget => {
     hidden: false,
     mobileHidden: false,
     anchor: {
-      hash: "about",
+      hash: "",
       top: 0
     },
     layout: {},

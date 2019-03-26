@@ -5,8 +5,6 @@
 import * as React from "react";
 import { PageEditorWidget } from "./PageEditorWidget";
 
-// import styles from "./styles.css";
-
 export type PageEditorWidgetsProps = {
   widgets: Widget[];
   onChange: { (newWidgets: Widget[]): void };

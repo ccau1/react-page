@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import { PageEditor } from "react-page";
 import "react-page/src/styles.css";
 
-import example1Page from "./example1.page";
+import example1Page from "./page_logistics";
 import { widgets as widgetTypes } from "./widgets";
 
 export default class App extends Component {

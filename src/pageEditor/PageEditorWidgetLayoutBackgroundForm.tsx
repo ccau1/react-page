@@ -4,11 +4,7 @@
 
 import * as React from "react";
 import { defaultWidgetLayout } from "../widgets/utils";
-// import { SketchPicker } from "react-color";
 import ColorSwatchButton from "../components/ColorSwatchButton";
-// import { widgets } from "../widgets";
-
-// import styles from "./styles.css";
 
 export type PageEditorWidgetLayoutBackgroundFormProps = {
   widget: Widget;

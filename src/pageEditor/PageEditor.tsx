@@ -36,10 +36,7 @@ export const PageEditor = withDragDropContext(
           <WidgetListModalContext.Provider>
             <WidgetFormContext.Provider page={page}>
               <HoverContext.Provider>
-                <div
-                  className={`page_base page_editor`}
-                  style={{ display: "flex" }}
-                >
+                <div className={`page_base page_editor`}>
                   <div className={"page_editor_left_panel"}>
                     <PageEditorAddWidgetButton
                       onCreate={newWidget =>

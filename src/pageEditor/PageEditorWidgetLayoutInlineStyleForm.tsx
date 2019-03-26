@@ -36,7 +36,6 @@ export class PageEditorWidgetLayoutInlineStyleForm extends React.Component<
         </h3>
         <TextareaAutosize
           value={widget.inlineStyle}
-          style={{ minHeight: "50px" }}
           placeholder={"define your custom styles here..."}
           onChange={ev =>
             onChange({

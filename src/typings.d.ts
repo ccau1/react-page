@@ -34,6 +34,9 @@ declare type WidgetIndex = {
   // display: ReactType;
   // overview?: ReactType;
   new: { (obj?: Widget): Widget };
+  cloneWidget?: {
+    (widget: Widget, widgetTypes: { [key: string]: WidgetIndex }): Widget;
+  };
   getWidget?: { (widget: Widget, widgetId: string): Widget | null };
   transformSubWidgets?: {
     (

@@ -12,13 +12,14 @@ export type PageEditorWidgetFormProps = {
   widget: Widget;
   onChange: { (newWidget: Widget): void };
   onDelete: { (widget: Widget): void };
+  onDuplicate: { (widget: Widget): void };
 };
 
 export class PageEditorWidgetForm extends React.Component<
   PageEditorWidgetFormProps
 > {
   render() {
-    const { widget, onChange, onDelete } = this.props;
+    const { widget, onChange, onDelete, onDuplicate } = this.props;
 
     if (!widget) {
       return <div>no widget selected</div>;
@@ -55,6 +56,12 @@ export class PageEditorWidgetForm extends React.Component<
                     onClick={() => onDelete(widget)}
                   >
                     Delete
+                  </a>
+                  <a
+                    className={`page_editor_widget_form_duplicate_button`}
+                    onClick={() => onDuplicate(widget)}
+                  >
+                    Duplicate
                   </a>
                 </div>
                 <div className={`page_editor_widget_form_footer_right`} />

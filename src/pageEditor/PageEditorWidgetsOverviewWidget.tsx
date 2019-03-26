@@ -137,11 +137,11 @@ export const PageEditorWidgetsOverviewWidgetDraggable: any = WidgetContext.injec
           (clientOffset as XYCoord).y - hoverBoundingRect.top;
 
         // // Time to actually perform the action
-        const newDragWidget = props.context.moveWidget(
-          dragWidget,
-          hoverWidget,
-          hoverClientY > hoverMiddleY
-        );
+        const newDragWidget = props.context.moveWidget({
+          widget: dragWidget,
+          toWidget: hoverWidget,
+          isAbove: hoverClientY > hoverMiddleY
+        });
 
         // Note: we're mutating the monitor item here!
         // Generally it's better to avoid mutations,
@@ -184,7 +184,11 @@ export const PageEditorWidgetsOverviewWidgetDraggable: any = WidgetContext.injec
 
           return connectDragSource(
             connectDropTarget!(
-              <div style={{ opacity: isDragging ? 0.5 : 1 }}>
+              <div
+                className={`page_editor_widgets_overview_widget_draggable_wrapper ${
+                  isDragging ? "isDragging" : ""
+                }`}
+              >
                 <PageEditorWidgetsOverviewWidget {...rest} />
               </div>
             )

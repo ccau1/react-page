@@ -2,7 +2,7 @@ import editor from "./editor";
 import display from "./display";
 import overview from "./overview";
 import form from "./form";
-import { getWidget, widgetsTransform, newWidget } from "../utils";
+import { getWidget, widgetsTransform, newWidget, newID } from "../utils";
 
 export default {
   key: "layoutBuilder",
@@ -83,5 +83,30 @@ export default {
     }
     // if none found, return null
     return widget;
+  },
+  cloneWidget: (
+    widget: Widget,
+    widgetTypes: { [key: string]: WidgetIndex }
+  ): Widget => {
+    console.log("before clone", widget);
+    const clonedWidget = {
+      ...widget,
+      data: { ...widget.data, widgets: { ...widget.data.widgets } },
+      _id: newID()
+    };
+
+    for (const widgetsKey of Object.keys(clonedWidget.data.widgets)) {
+      clonedWidget.data.widgets[widgetsKey] = widgetsTransform(
+        [...clonedWidget.data.widgets[widgetsKey]],
+        (widget: Widget): Widget => {
+          const newWidget = { ...widget, _id: newID() };
+          return newWidget;
+        },
+        widgetTypes
+      );
+    }
+    console.log("cloned widget", clonedWidget);
+
+    return clonedWidget;
   }
 } as WidgetIndex;

@@ -7,9 +7,6 @@ import { PageEditorWidgetLayoutBackgroundForm } from "./PageEditorWidgetLayoutBa
 import { PageEditorWidgetLayoutMarginForm } from "./PageEditorWidgetLayoutMarginForm";
 import { PageEditorWidgetLayoutPaddingForm } from "./PageEditorWidgetLayoutPaddingForm";
 import { PageEditorWidgetLayoutInlineStyleForm } from "./PageEditorWidgetLayoutInlineStyleForm";
-// import { widgets } from "../widgets";
-
-// import styles from "./styles.css";
 
 export type PageEditorWidgetLayoutFormProps = {
   widget: Widget;

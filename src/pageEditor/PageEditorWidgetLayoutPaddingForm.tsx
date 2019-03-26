@@ -4,9 +4,6 @@
 
 import * as React from "react";
 import { defaultWidgetLayout } from "../widgets/utils";
-// import { widgets } from "../widgets";
-
-// import styles from "./styles.css";
 
 export type PageEditorWidgetLayoutPaddingFormProps = {
   widget: Widget;
