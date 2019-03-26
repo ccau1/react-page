@@ -13,7 +13,9 @@ export default {
     return newWidget({
       type: "text",
       data: {
-        text: ""
+        text: "",
+        textAlign: "left",
+        heading: "p"
       },
       ...obj
     });

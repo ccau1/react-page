@@ -14,8 +14,8 @@ export default {
       type: "image",
       data: {
         src: "",
-        width: "500px",
-        height: "500px",
+        width: "",
+        height: "",
         fit: "cover",
         position: "center"
       },

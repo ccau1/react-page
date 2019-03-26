@@ -12,6 +12,7 @@ import { PageEditorAddWidgetButton } from "./PageEditorAddWidgetButton";
 import WidgetContext from "../contexts/WidgetContext";
 import withDragDropContext from "../contexts/withDragDropContext";
 import WidgetListModalContext from "../contexts/WidgetListModalContext";
+import { PageEditorPageData } from "./PageEditorPageData";
 
 export type PageEditorProps = {
   page: Page;
@@ -51,15 +52,10 @@ export const PageEditor = withDragDropContext(
                     <PageEditorWidgetsOverviewDroppable
                       widgets={page.widgets}
                       onChange={(newWidgets: Widget[]) => {
-                        console.log(
-                          "page editor overview change",
-                          newWidgets,
-                          onChange
-                        );
-
                         onChange({ ...page, widgets: newWidgets });
                       }}
                     />
+                    <PageEditorPageData page={page} />
                   </div>
                   <PageEditorLayout page={page}>
                     <PageEditorWidgets

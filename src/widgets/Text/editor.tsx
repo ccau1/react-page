@@ -16,26 +16,23 @@ export type TextEditorProps = {
 };
 
 export default class TextEditor extends React.Component<TextEditorProps> {
-  height = 0;
-
-  autoGrow = (element: any) => {
-    console.log("ele", element);
-    element.style.height = "5px";
-    element.style.height = element.scrollHeight + "px";
-  };
   render() {
     const { widget, onChange } = this.props;
     const {
       _id,
-      data: { text }
+      data: { text, textAlign, heading }
     } = widget;
     return (
       <WidgetFormContext.Consumer>
         {({ openForm }: WidgetFormProviderState) => (
           <TextareaAutosize
-            className="widget_text_editor"
+            className={`widget_text_editor widget_text ${heading} textAlign-${textAlign}`}
             value={text}
-            onDoubleClick={() => openForm(_id, onChange)}
+            onClick={ev => ev.stopPropagation()}
+            onDoubleClick={ev => {
+              ev.stopPropagation();
+              openForm(_id, onChange);
+            }}
             onChange={(ev: any) =>
               onChange({
                 ...widget,

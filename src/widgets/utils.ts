@@ -13,7 +13,7 @@ export const defaultWidgetLayout: Layout = {
   paddingBottom: "0",
   paddingLeft: "0",
   backgroundType: "color",
-  backgroundColor: "#fff",
+  backgroundColor: "transparent",
   backgroundUri: "",
   backgroundSize: "cover"
 };
@@ -21,7 +21,7 @@ export const defaultWidgetLayout: Layout = {
 export const newWidget = (obj?: any): Widget => {
   return {
     _id: new ObjectID().toHexString(),
-    idx: undefined,
+    position: "",
     inlineStyle: "",
     userPermission: {
       delete: true,
@@ -97,10 +97,19 @@ export const widgetsTransform = (
   transformFn: { (widget: Widget, stopSearch: { (): void }): Widget | null },
   widgetTypes: {
     [key: string]: WidgetIndex;
+  },
+  transformArrayFn?: {
+    (widgets: Widget[], stopSearch: { (): void }): Widget[];
   }
 ): Widget[] => {
   // indicator for whether tree loop can be stopped
   let shouldStop = false;
+  // give control for user to transform widgets as well
+  if (transformArrayFn) {
+    widgets = transformArrayFn(widgets, () => {
+      shouldStop = true;
+    });
+  }
   // looping from last to avoid
   // delete affecting rest of loop
   for (let i = widgets.length - 1; i >= 0; i--) {
@@ -129,7 +138,8 @@ export const widgetsTransform = (
         widgets[i] = widgetType.transformSubWidgets(
           widgets[i],
           transformFn,
-          widgetTypes
+          widgetTypes,
+          transformArrayFn
         );
       }
     }

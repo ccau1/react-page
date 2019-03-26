@@ -23,13 +23,12 @@ export class PageEditorWidgetsOverview extends React.Component<
 > {
   render() {
     const { widgets, onChange } = this.props;
-    console.log("page editor widgets overview", widgets);
 
     return (
       <div className={`page_editor_widgets_overview`}>
         {widgets.map((widget, widgetIndex) => (
           <PageEditorWidgetsOverviewWidgetDraggable
-            key={widgetIndex}
+            key={widget._id}
             widget={widget}
             onChange={(newWidget: Widget) => {
               const newWidgets = [...widgets];
@@ -46,7 +45,7 @@ export class PageEditorWidgetsOverview extends React.Component<
 export const PageEditorWidgetsOverviewDroppable: DndComponentClass<
   any
 > = DropTarget(
-  ["overview_widget"],
+  ["overview_widget111"],
   {
     canDrop: () =>
       // props: PageEditorWidgetsOverviewProps,
@@ -55,7 +54,7 @@ export const PageEditorWidgetsOverviewDroppable: DndComponentClass<
         return true;
       },
     hover: () => {
-      console.log("overview hover!!!");
+      // console.log("overview hover!!!");
     }
   },
   (connect: DropTargetConnector, monitor: DropTargetMonitor) => {

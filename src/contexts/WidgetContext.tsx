@@ -27,7 +27,11 @@ export type WidgetProviderState = {
   getWidgetTypeByKey: { (key: string): WidgetIndex };
 
   updateWidget: { (widget: Widget): void };
-  deleteWidget: { (widgetId: string): void };
+  moveWidget: { (widget: Widget, toWidget: Widget, isAbove?: boolean): Widget };
+  moveWidgetToList: {
+    (widget: Widget, widgets: Widget[], position: number): Widget;
+  };
+  deleteWidget: { (widgetId: string): Widget | null };
 };
 
 class WidgetProvider extends React.PureComponent<WidgetProviderProps> {
@@ -72,13 +76,13 @@ class WidgetProvider extends React.PureComponent<WidgetProviderProps> {
 
       this.props.onWidgetsChange(newWidgets);
     },
-    deleteWidget: (widgetId: string): void => {
+    deleteWidget: (widgetId: string): Widget | null => {
+      let widget = null;
       const newWidgets = widgetsTransform(
         [...this.props.widgets],
         (widget_: Widget, stopSearch: { (): void }): Widget | null => {
-          console.log("deleting transformFn", widget_);
-
           if (widget_._id === widgetId) {
+            widget = widget_;
             stopSearch();
             return null;
           }
@@ -88,6 +92,126 @@ class WidgetProvider extends React.PureComponent<WidgetProviderProps> {
       );
 
       this.props.onWidgetsChange(newWidgets);
+
+      return widget;
+    },
+    moveWidgetToList: (
+      widget: Widget,
+      widgets: Widget[],
+      position: number
+    ): Widget => {
+      let _widget = widget;
+      let _widgets = widgets;
+      let foundWidget = false;
+      let foundWidgetsList = false;
+      const newWidgets = widgetsTransform(
+        [...this.props.widgets],
+        (widget_: Widget): Widget | null => {
+          return widget_;
+        },
+        this.state.widgetTypes,
+        (widgets: Widget[], stopSearch: { (): void }): Widget[] => {
+          let newWidgets = [...widgets];
+          // for each widget, starting from the back, either remove if match widget
+          // or add to front of toWidget if toWidgetFound
+          for (let i = newWidgets.length - 1; i >= 0; i--) {
+            if (newWidgets[i]._id === _widget._id) {
+              // match widget, remove it
+              newWidgets.splice(i, 1);
+              foundWidget = true;
+            }
+          }
+          if (widgets === _widgets) {
+            foundWidgetsList = true;
+            if (
+              position &&
+              position <= newWidgets.length - 1 &&
+              position >= 0
+            ) {
+              // not end of array, so just plug it in
+              newWidgets.splice(position, 0, widget);
+            } else {
+              // it is at the end of array, we push instead
+              newWidgets.push(widget);
+            }
+          }
+          if (foundWidget && foundWidgetsList) {
+            stopSearch();
+          }
+          return newWidgets;
+        }
+      );
+
+      // update widgets only if both delete and place is successful
+      if (foundWidget && foundWidgetsList) {
+        this.props.onWidgetsChange(newWidgets);
+      }
+      // widget.position
+      // toWidget.position
+      return _widget;
+    },
+    moveWidget: (
+      widget: Widget,
+      toWidget: Widget,
+      isAbove?: boolean
+    ): Widget => {
+      let _widget = widget;
+      let foundWidget = false;
+      let foundToWidget = false;
+      // remove widget and add it to above toWidget
+      const newWidgets = widgetsTransform(
+        [...this.props.widgets],
+        (widget_: Widget): Widget | null => {
+          return widget_;
+        },
+        this.state.widgetTypes,
+        (widgets: Widget[], stopSearch: { (): void }): Widget[] => {
+          let newWidgets = [...widgets];
+          // const parentPosition = widgets.length
+          //   ? widgets[0].position
+          //       .split(".")
+          //       .slice(0, -1)
+          //       .join(".")
+          //   : "";
+          // for each widget, starting from the back, either remove if match widget
+          // or add to front of toWidget if toWidgetFound
+          for (let i = newWidgets.length - 1; i >= 0; i--) {
+            if (newWidgets[i]._id === _widget._id) {
+              // match widget, remove it
+              newWidgets.splice(i, 1);
+              foundWidget = true;
+            } else if (newWidgets[i]._id === toWidget._id) {
+              // match toWidget, add widget infront of it
+              if (isAbove) {
+                // if move to above toWidget, just use i
+                newWidgets.splice(i, 0, _widget);
+              } else {
+                // if move below toWidget, check if i is last position
+                if (i === newWidgets.length - 1) {
+                  // if last item, do push instead
+                  newWidgets.push(_widget);
+                } else {
+                  // if toWidget item is not last item, just do i+1
+                  newWidgets.splice(i + 1, 0, _widget);
+                }
+              }
+              foundToWidget = true;
+            }
+          }
+          if (foundWidget && foundToWidget) {
+            stopSearch();
+          }
+          return newWidgets;
+        }
+      );
+
+      // update widgets only if both delete and place is successful
+      if (foundWidget && foundToWidget) {
+        this.props.onWidgetsChange(newWidgets);
+      }
+      // widget.position
+      // toWidget.position
+      return _widget;
     }
   };
 
@@ -116,7 +240,7 @@ class WidgetProvider extends React.PureComponent<WidgetProviderProps> {
 export default {
   ...WidgetContext,
   Provider: WidgetProvider,
-  inject: (Comp: React.FunctionComponent<any>) => (props: any) => (
+  inject: (Comp: any) => (props: any) => (
     <WidgetContext.Consumer>
       {(value: WidgetProviderState) => <Comp {...props} context={value} />}
     </WidgetContext.Consumer>

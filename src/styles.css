@@ -15,6 +15,9 @@
   border: 1px solid #d6d1d1;
   outline: none;
 }
+.page_base button.selected {
+  background-color: #eeeeee;
+}
 .page_base button:active {
   background-color: #f9f9f9;
 }
@@ -47,6 +50,7 @@
 
 .page_editor_layout {
   flex: 1;
+  overflow-y: auto;
 }
 
 .page_editor_layout_inner {
@@ -65,6 +69,8 @@
   max-width: 100%;
   background-color: #e7e7e7;
   border-right: 1px solid #bfbebe;
+  display: flex;
+  flex-direction: column;
 }
 
 .page_editor_widgets_overview_widget {
@@ -80,6 +86,16 @@
 .page_editor_widgets_overview_widget.hover {
   background-color: #f1fffd;
   border: 1px solid #daefec;
+}
+
+.page_editor_page_data {
+  width: 100%;
+  overflow: auto;
+  background: white;
+  padding: 10px 5px;
+  box-sizing: border-box;
+  max-height: 700px;
+  min-height: 200px;
 }
 
 .page_editor_hoverable {
@@ -296,6 +312,33 @@
   outline: none;
   resize: none;
   width: 100%;
+}
+.widget_text.h1 {
+  font-size: 3em;
+  font-weight: 700;
+}
+.widget_text.h2 {
+  font-size: 2.6em;
+  font-weight: 700;
+}
+.widget_text.h3 {
+  font-size: 2.3em;
+  font-weight: 700;
+}
+.widget_text.h4 {
+  font-size: 2em;
+}
+.widget_text.p {
+  font-size: 1em;
+}
+.widget_text.textAlign-left {
+  text-align: left;
+}
+.widget_text.textAlign-center {
+  text-align: center;
+}
+.widget_text.textAlign-right {
+  text-align: right;
 }
 
 .widget_image_editor {

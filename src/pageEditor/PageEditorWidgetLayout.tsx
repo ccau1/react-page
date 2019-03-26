@@ -23,7 +23,6 @@ export class PageEditorWidgetLayout extends React.Component<
 
   render() {
     const { widget, children } = this.props;
-    console.log("PageEditorWidgetLayout widgets", widget);
 
     return (
       <HoverContext.Consumer>

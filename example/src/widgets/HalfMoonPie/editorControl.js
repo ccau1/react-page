@@ -4,13 +4,7 @@
 
 import * as React from "react";
 
-// import styles from "./styles.css";
-
-export type TextEditorControlProps = { widget: Widget };
-
-export default class TextEditorControl extends React.Component<
-  TextEditorControlProps
-> {
+export default class TextEditorControl extends React.Component {
   render() {
     // const {
     //   widget: {

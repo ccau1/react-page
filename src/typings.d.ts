@@ -26,7 +26,9 @@ declare type WidgetIndex = {
   key: string;
   name: string;
   editor: any;
+  editorControl: any;
   display: any;
+  form: any;
   overview?: any;
   // editor: ReactType;
   // display: ReactType;
@@ -39,7 +41,10 @@ declare type WidgetIndex = {
       transformFn: {
         (widget: Widget, stopSearch?: { (): void }): Widget | null;
       },
-      widgetTypes: { [type: string]: WidgetIndex }
+      widgetTypes: { [type: string]: WidgetIndex },
+      transformArrayFn?: {
+        (widgets: Widget[], stopSearch: { (): void }): Widget[];
+      }
     ): Widget;
   };
 };
@@ -64,7 +69,7 @@ declare type Layout = {
 
 declare type Widget = {
   _id: string;
-  idx?: number;
+  position: string;
   layout: Layout;
   inlineStyle: string;
   userPermission: {

@@ -86,7 +86,7 @@ export class PageEditorWidgetLayoutBackgroundForm extends React.Component<
           <div className={`form_field_horizontal`}>
             <label>Background Color: </label>
             <ColorSwatchButton
-              color={layout.backgroundColor || "#fff"}
+              color={layout.backgroundColor || "#transparent"}
               onChange={color =>
                 onChange({
                   ...widget,
@@ -127,12 +127,7 @@ export class PageEditorWidgetLayoutBackgroundForm extends React.Component<
                 }
               >
                 <option value="cover">cover</option>
-                <option
-                  value="contain"
-                  selected={layout.backgroundSize === "contain"}
-                >
-                  contain
-                </option>
+                <option value="contain">contain</option>
               </select>
             </div>
           </div>

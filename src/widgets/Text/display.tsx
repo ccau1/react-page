@@ -12,10 +12,14 @@ export default class TextDisplay extends React.Component<TextDisplayProps> {
   render() {
     const {
       widget: {
-        data: { text }
+        data: { text, textAlign }
       }
     } = this.props;
 
-    return <p className={"widget_text"}>{text}</p>;
+    return (
+      <p className={"widget_text"} style={{ textAlign }}>
+        {text}
+      </p>
+    );
   }
 }

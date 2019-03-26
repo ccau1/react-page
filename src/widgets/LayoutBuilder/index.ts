@@ -18,7 +18,7 @@ export default {
         columns: 3,
         columnWidths: { "0": 33.33, "1": 33.33, "2": 33.33 },
         columnRatio: "even",
-        widgets: {}
+        widgets: { "0": [], "1": [], "2": [] }
       },
       ...obj
     });
@@ -48,10 +48,17 @@ export default {
   transformSubWidgets: (
     widget: Widget,
     transformFn: { (widget: Widget, stopSearch?: { (): void }): Widget },
-    widgetTypes: { [type: string]: WidgetIndex }
+    widgetTypes: { [type: string]: WidgetIndex },
+    transformArrayFn?: {
+      (widgets: Widget[], stopSearch: { (): void }): Widget[];
+    }
   ): Widget => {
     // indicator for whether tree loop can be stopped
     let shouldStop = false;
+    // if transformArrayFn sets shouldStop, return object now
+    if (shouldStop) {
+      return widget;
+    }
     // for each of the child widgets array,
     // check if there are matches
     for (let widgetArrayKey of Object.keys(widget.data.widgets)) {
@@ -66,7 +73,8 @@ export default {
             }
           });
         },
-        widgetTypes
+        widgetTypes,
+        transformArrayFn
       );
       // if shouldStop, return widget now
       if (shouldStop) {

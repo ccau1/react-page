@@ -4,6 +4,7 @@ import { PageEditor } from "react-page";
 import "react-page/src/styles.css";
 
 import example1Page from "./example1.page";
+import { widgets as widgetTypes } from "./widgets";
 
 export default class App extends Component {
   state = {
@@ -15,6 +16,7 @@ export default class App extends Component {
       <div style={{ height: "100%" }}>
         <PageEditor
           page={this.state.page}
+          widgetTypes={widgetTypes}
           onChange={page => this.setState({ page })}
         />
       </div>

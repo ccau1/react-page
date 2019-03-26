@@ -67,7 +67,6 @@ export class PageEditorAddWidgetButton extends React.Component<
             >
               <PageEditorWidgetsList
                 onSelect={widgetType => {
-                  console.log("widgetType", widgetType);
                   const newWidget = widgetType.new();
                   this.props.onCreate(newWidget);
                   this.closeListModal();

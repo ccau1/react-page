@@ -18,8 +18,6 @@ export default class LayoutBuilderForm extends React.Component<
     columns: number,
     columnRatio: ColumnRatio
   ): { [column: string]: number } => {
-    console.log("starting", columns, columnRatio);
-
     // get all fixed widths
     let remaining = 100;
     switch (columnRatio) {
@@ -88,8 +86,6 @@ export default class LayoutBuilderForm extends React.Component<
     const {
       data: { columns, columnRatio, columnWidths }
     } = widget;
-    console.log("LayoutBuilder FORM", columns, columnWidths);
-
     return (
       <div className={"widget_layout_builder_form"}>
         <div>
@@ -105,6 +101,13 @@ export default class LayoutBuilderForm extends React.Component<
                   ...widget,
                   data: {
                     ...widget.data,
+                    widgets:
+                      value === ""
+                        ? widget.data.widgets
+                        : Array.from(Array(parsedValue)).reduce((obj, key) => {
+                            obj[key] = obj[key] || [];
+                            return obj;
+                          }, widget.data.widgets),
                     columns: value.replace(/[^0-9]+/, ""),
                     columnWidths:
                       value !== ""
