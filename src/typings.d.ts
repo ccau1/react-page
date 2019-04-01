@@ -30,9 +30,8 @@ declare type WidgetIndex = {
   display: any;
   form: any;
   overview?: any;
-  // editor: ReactType;
-  // display: ReactType;
-  // overview?: ReactType;
+  provider?: any;
+  dependencies?: string[];
   new: { (obj?: Widget): Widget };
   cloneWidget?: {
     (widget: Widget, widgetTypes: { [key: string]: WidgetIndex }): Widget;

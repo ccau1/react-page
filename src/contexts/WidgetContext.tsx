@@ -21,6 +21,7 @@ export type WidgetProviderState = {
   widgetTypes: {
     [key: string]: WidgetIndex;
   };
+  WidgetProvidersComponent: { (props: any): any };
   setWidgetTypes: { (widgetTypes: { [key: string]: WidgetIndex }): void };
   addWidgetTypes: { (widgetTypes: WidgetIndex[]): void };
   getWidgetTypes: { (): WidgetIndex[] };
@@ -42,15 +43,23 @@ export type WidgetProviderState = {
   cloneWidget: {
     (widget: Widget): Widget;
   };
+  getWidgetTypeProviders: { (): React.ComponentClass<any>[] };
+  getWidgetTypeProvidersComponent: {
+    (providers?: React.ComponentClass<any>[]): { (props: any): any };
+  };
 };
 
 class WidgetProvider extends React.PureComponent<WidgetProviderProps> {
   state: WidgetProviderState = {
     // object holding widgetTypes defined by key
     widgetTypes,
+    WidgetProvidersComponent: ({ children }) => children,
     // replace current widgetTypes with new widgetTypes
     setWidgetTypes: (widgetTypes: { [key: string]: WidgetIndex }): void => {
-      this.setState({ widgetTypes });
+      this.setState({
+        widgetTypes,
+        WidgetProvidersComponent: this.state.getWidgetTypeProvidersComponent()
+      });
     },
     // add widgetTypes to current object
     addWidgetTypes: (widgetTypes: WidgetIndex[]): void => {
@@ -234,6 +243,22 @@ class WidgetProvider extends React.PureComponent<WidgetProviderProps> {
         console.log("just returning new object");
         return { ...widget, _id: newID() };
       }
+    },
+    getWidgetTypeProviders: (): any[] => {
+      return Object.values(this.state.widgetTypes).reduce(
+        (arr, widgetType) =>
+          widgetType.provider ? [...arr, widgetType.provider] : arr,
+        []
+      );
+    },
+    getWidgetTypeProvidersComponent: (
+      widgetTypeProviders?: React.ComponentClass<any>[]
+    ): { (props: any): any } => {
+      return props =>
+        (widgetTypeProviders || this.state.getWidgetTypeProviders()).reduce(
+          (children, Provider) => <Provider {...props}>{children}</Provider>,
+          props.children
+        );
     }
   };
 
@@ -241,6 +266,7 @@ class WidgetProvider extends React.PureComponent<WidgetProviderProps> {
     super(props);
     // merge default widgetTypes and outside widgetTypes
     this.state.widgetTypes = { ...widgetTypes, ...props.widgetTypes };
+    this.state.WidgetProvidersComponent = this.state.getWidgetTypeProvidersComponent();
   }
 
   componentDidUpdate(prevProps: WidgetProviderProps) {
@@ -251,9 +277,12 @@ class WidgetProvider extends React.PureComponent<WidgetProviderProps> {
   }
 
   render() {
+    const WidgetProvidersComponent = this.state.WidgetProvidersComponent;
     return (
       <WidgetContext.Provider value={this.state}>
-        <React.Fragment>{this.props.children}</React.Fragment>
+        <WidgetProvidersComponent>
+          <React.Fragment>{this.props.children}</React.Fragment>
+        </WidgetProvidersComponent>
       </WidgetContext.Provider>
     );
   }

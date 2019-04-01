@@ -1,49 +1,77 @@
 import editor from "./editor";
+import form from "./form";
+import editorControl from "./editorControl";
 import display from "./display";
 import overview from "./overview";
-import form from "./form";
-import { getWidget, widgetsTransform, newWidget, newID } from "../utils";
+import { getWidget, newWidget, widgetsTransform, newID } from "../utils";
+
+export type TabContentData = {
+  tabId: string;
+  horizontal: boolean;
+  contents: TabContentDataContent[];
+};
+export type TabContentDataContent = { id: string; widgets: Widget[] };
+
+export interface ITabContentWidget extends Widget {
+  data: TabContentData;
+}
 
 export default {
-  key: "layoutBuilder",
-  name: "Layout Builder",
-  form,
+  key: "tabContent",
+  name: "Tab Content",
   editor,
-  display,
-  overview,
+  editorControl,
+  overview: overview,
+  dependencies: ["tabMenu"],
   new: (obj?: Widget): Widget => {
     return newWidget({
-      type: "layoutBuilder",
+      type: "tabContent",
       data: {
-        columns: 3,
-        columnWidths: { "0": 33.33, "1": 33.33, "2": 33.33 },
-        columnRatio: "even",
-        direction: "leftToRight",
-        widgets: { "0": [], "1": [], "2": [] }
+        tabId: "topTab",
+        contents: [
+          {
+            id: "truck_management",
+            widgets: []
+          },
+          {
+            id: "in_out_order_management",
+            widgets: []
+          },
+          {
+            id: "security_process",
+            widgets: []
+          },
+          {
+            id: "product_tracking",
+            widgets: []
+          }
+        ]
       },
       ...obj
     });
   },
+  form,
+  display,
   // this method is for if this widget can have sub-widgets
   getWidget: (widget: Widget, widgetId: string): Widget | null => {
     // if current widget matches, return this one
     if (widget._id === widgetId) {
       return widget;
     }
+    console.log("tab content widget", widget);
+
     // for each of the child widgets array,
     // check if there are matches
-    for (const widgets of Object.values(widget.data.widgets as {
-      [key: string]: Widget[];
-    })) {
-      // get widget by widgets
-      const widget = getWidget(widgets, widgetId);
-      // if widget found, return widget
-      if (widget) {
-        return widget;
-      }
-    }
-    // if none found, return null
-    return null;
+    return getWidget(
+      widget.data.contents.reduce(
+        (arr: Widget[], content: TabContentDataContent) => [
+          ...arr,
+          ...content.widgets
+        ],
+        []
+      ),
+      widgetId
+    );
   },
   // this method is for if this widget can have sub-widgets
   transformSubWidgets: (
@@ -62,10 +90,9 @@ export default {
     }
     // for each of the child widgets array,
     // check if there are matches
-    for (let widgetArrayKey of Object.keys(widget.data.widgets)) {
-      // get widget by widgets
-      widget.data.widgets[widgetArrayKey] = widgetsTransform(
-        widget.data.widgets[widgetArrayKey],
+    for (let i = widget.data.contents.length - 1; i >= 0; i--) {
+      widget.data.contents[i].widgets = widgetsTransform(
+        widget.data.contents[i].widgets,
         (widget_: Widget, stopSearch?: { (): void }): Widget => {
           return transformFn(widget_, () => {
             shouldStop = true;
@@ -89,16 +116,15 @@ export default {
     widget: Widget,
     widgetTypes: { [key: string]: WidgetIndex }
   ): Widget => {
-    console.log("before clone", widget);
     const clonedWidget = {
       ...widget,
-      data: { ...widget.data, widgets: { ...widget.data.widgets } },
+      data: { ...widget.data, contents: [...widget.data.contents] },
       _id: newID()
     };
 
-    for (const widgetsKey of Object.keys(clonedWidget.data.widgets)) {
-      clonedWidget.data.widgets[widgetsKey] = widgetsTransform(
-        [...clonedWidget.data.widgets[widgetsKey]],
+    for (let i = 0; i < clonedWidget.data.contents.length; i++) {
+      clonedWidget.data.contents[i].widgets = widgetsTransform(
+        [...clonedWidget.data.contents[i].widgets],
         (widget: Widget): Widget => {
           const newWidget = { ...widget, _id: newID() };
           return newWidget;
@@ -106,7 +132,6 @@ export default {
         widgetTypes
       );
     }
-    console.log("cloned widget", clonedWidget);
 
     return clonedWidget;
   }

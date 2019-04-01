@@ -3,11 +3,10 @@
  */
 
 import * as React from "react";
-import { ITextWidget } from ".";
 
 // import styles from "./styles.css";
 
-export type TextDisplayProps = { widget: ITextWidget };
+export type TextDisplayProps = { widget: Widget };
 
 export default class TextDisplay extends React.Component<TextDisplayProps> {
   render() {

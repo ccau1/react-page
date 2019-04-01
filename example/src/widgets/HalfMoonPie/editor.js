@@ -4,22 +4,19 @@
 
 import * as React from "react";
 import HalfMoonPieDisplay from "./display";
-import { WidgetFormContext } from "react-page";
 export default class HalfMoonPieEditor extends React.Component {
   render() {
-    const { widget, onChange, openForm } = this.props;
-    const {
-      _id,
-      data: { title, subtitle, img }
-    } = widget;
+    const { widget, openForm } = this.props;
+    const { _id } = widget;
     return (
-      <WidgetFormContext.Consumer>
-        {({ openForm }) => (
-          <div onClick={() => openForm(_id)}>
-            <HalfMoonPieDisplay widget={widget} />
-          </div>
-        )}
-      </WidgetFormContext.Consumer>
+      <div
+        onClick={ev => {
+          ev.stopPropagation();
+          openForm(_id);
+        }}
+      >
+        <HalfMoonPieDisplay widget={widget} />
+      </div>
     );
   }
 }

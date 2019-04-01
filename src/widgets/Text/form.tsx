@@ -5,12 +5,13 @@
 import * as React from "react";
 import TextareaAutosize from "react-textarea-autosize";
 import TextEditorControl from "./editorControl";
+import { ITextWidget } from ".";
 
 // import styles from "./styles.css";
 
 export type TextFormProps = {
-  widget: Widget;
-  onChange: { (newWidget: Widget): void };
+  widget: ITextWidget;
+  onChange: { (newWidget: ITextWidget): void };
 };
 
 export default class TextForm extends React.Component<TextFormProps> {

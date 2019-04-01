@@ -46,12 +46,14 @@ export const PageEditor = withDragDropContext(
                         })
                       }
                     />
-                    <PageEditorWidgetsOverviewDroppable
-                      widgets={page.widgets}
-                      onChange={(newWidgets: Widget[]) => {
-                        onChange({ ...page, widgets: newWidgets });
-                      }}
-                    />
+                    <div style={{flex: 1}}>
+                      <PageEditorWidgetsOverviewDroppable
+                        widgets={page.widgets}
+                        onChange={(newWidgets: Widget[]) => {
+                          onChange({ ...page, widgets: newWidgets });
+                        }}
+                      />
+                    </div>
                     <PageEditorPageData page={page} />
                   </div>
                   <PageEditorLayout page={page}>

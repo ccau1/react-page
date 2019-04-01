@@ -52,9 +52,10 @@ class WidgetFormProvider extends React.PureComponent<WidgetFormProviderProps> {
   };
 
   render() {
-    const widget = this.state.currentWidgetId
-      ? getWidget(this.props.page.widgets, this.state.currentWidgetId)
-      : null;
+    const widget =
+      this.state.isOpen && this.state.currentWidgetId
+        ? getWidget(this.props.page.widgets, this.state.currentWidgetId)
+        : null;
     return (
       <WidgetContext.Consumer>
         {({

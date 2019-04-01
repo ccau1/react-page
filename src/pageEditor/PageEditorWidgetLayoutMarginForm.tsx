@@ -80,8 +80,9 @@ export class PageEditorWidgetLayoutMarginForm extends React.Component<
             placeholder={"Right"}
             value={layout.marginRight}
             onChange={ev => {
-              const value = ev.target.value.replace(/[^0-9.]/g, "");
-              if (value === "" || !isNaN(parseFloat(value))) {
+              const regex = /^-?([0-9]+(\.([0-9]+)?)?)?$/;
+              const value = ev.target.value;
+              if (value === "" || regex.test(value)) {
                 onChange({
                   ...widget,
                   layout: { ...layout, marginRight: value }

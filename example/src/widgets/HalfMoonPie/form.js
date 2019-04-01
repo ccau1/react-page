@@ -3,7 +3,6 @@
  */
 
 import * as React from "react";
-import HalfMoonPieareaAutosize from "react-textarea-autosize";
 import TextareaAutosize from "react-textarea-autosize";
 
 export default class HalfMoonPieForm extends React.Component {

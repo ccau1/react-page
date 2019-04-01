@@ -21,7 +21,7 @@
   },
   "widgets": [
     {
-      "_id": "5c998446c781f461f4eca045",
+      "_id": "5c9b40c329d5656313dd1f47",
       "position": "",
       "inlineStyle": "",
       "userPermission": {
@@ -42,24 +42,42 @@
         "marginRight": "0",
         "marginBottom": "0",
         "marginLeft": "0",
-        "paddingTop": "0",
-        "paddingRight": "0",
-        "paddingBottom": "40",
-        "paddingLeft": "0",
+        "paddingTop": "50",
+        "paddingRight": "50",
+        "paddingBottom": "50",
+        "paddingLeft": "50",
         "backgroundType": "color",
         "backgroundColor": "transparent",
         "backgroundUri": "",
         "backgroundSize": "cover"
       },
-      "type": "halfMoonPie",
+      "type": "tabMenu",
       "data": {
-        "title": "技術專長",
-        "subtitle": "我們的目標是為您提供經濟高效的服務。通過使用開源軟件和最先進的技術,我們保證我們的產品與所有主要工具,平台和智能手機系統兼容。此外,雲計算服務,您可以即時訪問您需要的資源,而且您不必事先在硬件上投入大量資金,您只需要支付使用費用。",
-        "img": "http://www-testing.httpeace.com:3400/static/images/technologies_landing.png"
+        "tabId": "topTab",
+        "horizontal": true,
+        "items": [
+          {
+            "id": "logistics",
+            "name": "物流"
+          },
+          {
+            "id": "retail_ecommerce",
+            "name": "零售及電子商務"
+          },
+          {
+            "id": "social_media_mass_user_app",
+            "name": "社交網絡／多人使用APP"
+          },
+          {
+            "id": "production_storage",
+            "name": "生產及貨倉"
+          }
+        ],
+        "horizontalPosition": "fill"
       }
     },
     {
-      "_id": "5c998c28691bb916c3186c30",
+      "_id": "5c9b51af05051e80c2250596",
       "position": "",
       "inlineStyle": "",
       "userPermission": {
@@ -73,1117 +91,943 @@
         "hash": "",
         "top": 0
       },
-      "layout": {
-        "marginUnit": "px",
-        "paddingUnit": "px",
-        "marginTop": "0",
-        "marginRight": "0",
-        "marginBottom": "0",
-        "marginLeft": "0",
-        "paddingTop": "30",
-        "paddingRight": "0",
-        "paddingBottom": "30",
-        "paddingLeft": "0",
-        "backgroundType": "color",
-        "backgroundColor": "rgba(240,240,240,1)",
-        "backgroundUri": "",
-        "backgroundSize": "cover"
-      },
-      "type": "layoutBuilder",
+      "layout": {},
+      "type": "tabContent",
       "data": {
-        "columns": "1",
-        "columnWidths": {
-          "0": "100.00"
-        },
-        "columnRatio": "even",
-        "widgets": {
-          "0": [
-            {
-              "_id": "5c998529d55de26f326f127d",
-              "position": "",
-              "inlineStyle": "",
-              "userPermission": {
-                "delete": true,
-                "edit": true,
-                "move": true
-              },
-              "hidden": false,
-              "mobileHidden": false,
-              "anchor": {
-                "hash": "",
-                "top": 0
-              },
-              "layout": {},
-              "type": "text",
-              "data": {
-                "text": "語言",
-                "textAlign": "center",
-                "heading": "h2"
-              }
-            },
-            {
-              "_id": "5c91b505c4a234e3afbc85f4",
-              "position": "",
-              "layout": {
-                "marginUnit": "px",
-                "paddingUnit": "px",
-                "marginTop": 0,
-                "marginRight": 0,
-                "marginBottom": 0,
-                "marginLeft": 0,
-                "paddingTop": 0,
-                "paddingRight": "50",
-                "paddingBottom": 0,
-                "paddingLeft": "50",
-                "backgroundType": "color",
-                "backgroundColor": "transparent",
-                "backgroundUri": "",
-                "backgroundSize": "cover"
-              },
-              "inlineStyle": "",
-              "userPermission": {
-                "delete": true,
-                "edit": true,
-                "move": true
-              },
-              "hidden": false,
-              "mobileHidden": false,
-              "anchor": {
-                "hash": "",
-                "top": 0
-              },
-              "type": "layoutBuilder",
-              "data": {
-                "columns": "5",
-                "columnWidths": {
-                  "0": "20.00",
-                  "1": "20.00",
-                  "2": "20.00",
-                  "3": "20.00",
-                  "4": "20.00"
+        "tabId": "topTab",
+        "contents": [
+          {
+            "id": "logistics",
+            "widgets": [
+              {
+                "_id": "5c998c28691bb916c3186c30",
+                "position": "",
+                "inlineStyle": "",
+                "userPermission": {
+                  "delete": true,
+                  "edit": true,
+                  "move": true
                 },
-                "columnRatio": "even",
-                "widgets": {
-                  "0": [
-                    {
-                      "_id": "5c998603d55de26f326f127e",
-                      "position": "",
-                      "inlineStyle": "",
-                      "userPermission": {
-                        "delete": true,
-                        "edit": true,
-                        "move": true
+                "hidden": false,
+                "mobileHidden": false,
+                "anchor": {
+                  "hash": "",
+                  "top": 0
+                },
+                "layout": {
+                  "marginUnit": "px",
+                  "paddingUnit": "px",
+                  "marginTop": "0",
+                  "marginRight": "0",
+                  "marginBottom": "0",
+                  "marginLeft": "0",
+                  "paddingTop": "30",
+                  "paddingRight": "50",
+                  "paddingBottom": "30",
+                  "paddingLeft": "50",
+                  "backgroundType": "color",
+                  "backgroundColor": "rgba(255,255,255,1)",
+                  "backgroundUri": "",
+                  "backgroundSize": "cover"
+                },
+                "type": "layoutBuilder",
+                "data": {
+                  "columns": "1",
+                  "columnWidths": {
+                    "0": "100.00"
+                  },
+                  "direction": "leftToRight",
+                  "columnRatio": "even",
+                  "widgets": {
+                    "0": [
+                      {
+                        "_id": "5c998529d55de26f326f127d",
+                        "position": "",
+                        "inlineStyle": "",
+                        "userPermission": {
+                          "delete": true,
+                          "edit": true,
+                          "move": true
+                        },
+                        "hidden": false,
+                        "mobileHidden": false,
+                        "anchor": {
+                          "hash": "",
+                          "top": 0
+                        },
+                        "layout": {},
+                        "type": "text",
+                        "data": {
+                          "text": "物流",
+                          "textAlign": "left",
+                          "heading": "h2"
+                        }
                       },
-                      "hidden": false,
-                      "mobileHidden": false,
-                      "anchor": {
-                        "hash": "",
-                        "top": 0
+                      {
+                        "_id": "5c99dabc7fe53fa922ada16e",
+                        "position": "",
+                        "inlineStyle": "",
+                        "userPermission": {
+                          "delete": true,
+                          "edit": true,
+                          "move": true
+                        },
+                        "hidden": false,
+                        "mobileHidden": false,
+                        "anchor": {
+                          "hash": "",
+                          "top": 0
+                        },
+                        "layout": {
+                          "marginUnit": "px",
+                          "paddingUnit": "px",
+                          "marginTop": "0",
+                          "marginRight": "0",
+                          "marginBottom": "0",
+                          "marginLeft": "0",
+                          "paddingTop": "20",
+                          "paddingRight": "0",
+                          "paddingBottom": "20",
+                          "paddingLeft": "0",
+                          "backgroundType": "color",
+                          "backgroundColor": "transparent",
+                          "backgroundUri": "",
+                          "backgroundSize": "cover"
+                        },
+                        "type": "text",
+                        "data": {
+                          "text": "我們的運輸管理系統（TMS）提供完整的物流解決方案，包括GPS追踪、路線規劃和訂單管理系統，同時亦連接其他物流服務提供商的API、ERP、WMS和SCM等系統。",
+                          "textAlign": "left",
+                          "heading": "p"
+                        }
                       },
-                      "layout": {},
-                      "type": "image",
-                      "data": {
-                        "src": "http://www-testing.httpeace.com:3400/static/images/icons/technologies/icon_react.png",
-                        "width": "",
-                        "height": "",
-                        "fit": "cover",
-                        "position": "center"
+                      {
+                        "_id": "5c99e07cb0c1828d5cdd01a5",
+                        "position": "",
+                        "inlineStyle": "",
+                        "userPermission": {
+                          "delete": true,
+                          "edit": true,
+                          "move": true
+                        },
+                        "hidden": false,
+                        "mobileHidden": false,
+                        "anchor": {
+                          "hash": "",
+                          "top": 0
+                        },
+                        "layout": {},
+                        "type": "layoutBuilder",
+                        "data": {
+                          "columns": "4",
+                          "columnWidths": {
+                            "0": "25.00",
+                            "1": "25.00",
+                            "2": "25.00",
+                            "3": "25.00"
+                          },
+                          "direction": "leftToRight",
+                          "columnRatio": "even",
+                          "widgets": {
+                            "0": [
+                              {
+                                "_id": "5c99f87bfe8f9630d1d49a0c",
+                                "position": "",
+                                "inlineStyle": "",
+                                "userPermission": {
+                                  "delete": true,
+                                  "edit": true,
+                                  "move": true
+                                },
+                                "hidden": false,
+                                "mobileHidden": false,
+                                "anchor": {
+                                  "hash": "",
+                                  "top": 0
+                                },
+                                "layout": {},
+                                "type": "gradientBox",
+                                "data": {
+                                  "backgroundColor": "#2DCCD0",
+                                  "backgroundImg": "",
+                                  "title": "GPS追踪",
+                                  "items": [
+                                    "在世界地圖上提供車輛實時位置",
+                                    "包裹追踪",
+                                    "位置通知，與手機應用程式和服務器連接"
+                                  ],
+                                  "titleColor": "rgba(255,255,255,1)",
+                                  "itemColor": "rgba(255,255,255,1)"
+                                }
+                              }
+                            ],
+                            "1": [
+                              {
+                                "_id": "5c99f87ffe8f9630d1d49a0d",
+                                "position": "",
+                                "inlineStyle": "",
+                                "userPermission": {
+                                  "delete": true,
+                                  "edit": true,
+                                  "move": true
+                                },
+                                "hidden": false,
+                                "mobileHidden": false,
+                                "anchor": {
+                                  "hash": "",
+                                  "top": 0
+                                },
+                                "layout": {},
+                                "type": "gradientBox",
+                                "data": {
+                                  "backgroundColor": "#2DCCD0",
+                                  "backgroundImg": "https://www.thestar.com.my/~/media/online/2018/07/09/09/05/dcx_doc6zl7ll81v2a1e7hcwgsv.ashx/?w=620&h=413&crop=1&hash=8BB999578C4ECF954F39D421050B8D19B1CA79A7",
+                                  "title": ""
+                                }
+                              }
+                            ],
+                            "2": [
+                              {
+                                "_id": "5c99f881fe8f9630d1d49a0e",
+                                "position": "",
+                                "inlineStyle": "",
+                                "userPermission": {
+                                  "delete": true,
+                                  "edit": true,
+                                  "move": true
+                                },
+                                "hidden": false,
+                                "mobileHidden": false,
+                                "anchor": {
+                                  "hash": "",
+                                  "top": 0
+                                },
+                                "layout": {},
+                                "type": "gradientBox",
+                                "data": {
+                                  "backgroundColor": "#2DCCD0",
+                                  "backgroundImg": "",
+                                  "title": "路線規劃及配對",
+                                  "items": [
+                                    "實時更新貨車位置及更表",
+                                    "提供準確和有效的路線規劃",
+                                    "實現路線最佳化"
+                                  ],
+                                  "titleColor": "rgba(255,255,255,1)",
+                                  "itemColor": "rgba(255,255,255,1)"
+                                }
+                              }
+                            ],
+                            "3": [
+                              {
+                                "_id": "5c99f883fe8f9630d1d49a0f",
+                                "position": "",
+                                "inlineStyle": "",
+                                "userPermission": {
+                                  "delete": true,
+                                  "edit": true,
+                                  "move": true
+                                },
+                                "hidden": false,
+                                "mobileHidden": false,
+                                "anchor": {
+                                  "hash": "",
+                                  "top": 0
+                                },
+                                "layout": {},
+                                "type": "gradientBox",
+                                "data": {
+                                  "backgroundColor": "#2DCCD0",
+                                  "backgroundImg": "https://transportationtodaynews.com/wp-content/uploads/2018/07/shutterstock_688301032.jpg",
+                                  "title": ""
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      },
+                      {
+                        "_id": "5c9a03afc2a5eb42c1918fad",
+                        "position": "",
+                        "inlineStyle": "",
+                        "userPermission": {
+                          "delete": true,
+                          "edit": true,
+                          "move": true
+                        },
+                        "hidden": false,
+                        "mobileHidden": false,
+                        "anchor": {
+                          "hash": "",
+                          "top": 0
+                        },
+                        "layout": {},
+                        "type": "layoutBuilder",
+                        "data": {
+                          "columns": "4",
+                          "columnWidths": {
+                            "0": "25.00",
+                            "1": "25.00",
+                            "2": "25.00",
+                            "3": "25.00"
+                          },
+                          "direction": "leftToRight",
+                          "columnRatio": "even",
+                          "widgets": {
+                            "0": [
+                              {
+                                "_id": "5c9a03afc2a5eb42c1918fae",
+                                "position": "",
+                                "inlineStyle": "",
+                                "userPermission": {
+                                  "delete": true,
+                                  "edit": true,
+                                  "move": true
+                                },
+                                "hidden": false,
+                                "mobileHidden": false,
+                                "anchor": {
+                                  "hash": "",
+                                  "top": 0
+                                },
+                                "layout": {},
+                                "type": "gradientBox",
+                                "data": {
+                                  "backgroundColor": "#2DCCD0",
+                                  "backgroundImg": "",
+                                  "title": "POD (交付證明)",
+                                  "items": [
+                                    "實時更新包裹狀態",
+                                    "獲取交貨收據",
+                                    "通過手機提交電子簽署賬單",
+                                    "無紙化工作流程加速交易"
+                                  ],
+                                  "titleColor": "rgba(255,255,255,1)",
+                                  "itemColor": "rgba(255,255,255,1)"
+                                }
+                              }
+                            ],
+                            "1": [
+                              {
+                                "_id": "5c9a03afc2a5eb42c1918faf",
+                                "position": "",
+                                "inlineStyle": "",
+                                "userPermission": {
+                                  "delete": true,
+                                  "edit": true,
+                                  "move": true
+                                },
+                                "hidden": false,
+                                "mobileHidden": false,
+                                "anchor": {
+                                  "hash": "",
+                                  "top": 0
+                                },
+                                "layout": {},
+                                "type": "gradientBox",
+                                "data": {
+                                  "backgroundColor": "#2DCCD0",
+                                  "backgroundImg": "",
+                                  "title": "車輛維修",
+                                  "titleColor": "rgba(255,255,255,1)",
+                                  "itemColor": "rgba(255,255,255,1)",
+                                  "items": [
+                                    "完整的車輛服務記錄",
+                                    "監控車輛狀況",
+                                    "適時進行預防性維護",
+                                    "確保符合法例要求",
+                                    ""
+                                  ]
+                                }
+                              }
+                            ],
+                            "2": [
+                              {
+                                "_id": "5c9a03afc2a5eb42c1918fb0",
+                                "position": "",
+                                "inlineStyle": "",
+                                "userPermission": {
+                                  "delete": true,
+                                  "edit": true,
+                                  "move": true
+                                },
+                                "hidden": false,
+                                "mobileHidden": false,
+                                "anchor": {
+                                  "hash": "",
+                                  "top": 0
+                                },
+                                "layout": {},
+                                "type": "gradientBox",
+                                "data": {
+                                  "backgroundColor": "#2DCCD0",
+                                  "backgroundImg": "http://www.retail360asia.com/wp-content/uploads/2016/11/truck-1501222_1280-1200x800.jpg",
+                                  "title": ""
+                                }
+                              }
+                            ],
+                            "3": [
+                              {
+                                "_id": "5c9a03afc2a5eb42c1918fb1",
+                                "position": "",
+                                "inlineStyle": "",
+                                "userPermission": {
+                                  "delete": true,
+                                  "edit": true,
+                                  "move": true
+                                },
+                                "hidden": false,
+                                "mobileHidden": false,
+                                "anchor": {
+                                  "hash": "",
+                                  "top": 0
+                                },
+                                "layout": {},
+                                "type": "gradientBox",
+                                "data": {
+                                  "backgroundColor": "#2DCCD0",
+                                  "backgroundImg": "",
+                                  "title": "與ERP，WMS和SCM連接",
+                                  "titleColor": "rgba(255,255,255,1)",
+                                  "itemColor": "rgba(255,255,255,1)",
+                                  "items": [
+                                    "完整的供應鏈解決方案",
+                                    "提供一站式服務",
+                                    "在綜合平台管理整個流程，例如訂單、派送、運輸、倉儲、接收貨物，倉位轉移等。",
+                                    ""
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        }
                       }
-                    }
-                  ],
-                  "1": [
-                    {
-                      "_id": "5c998614d55de26f326f127f",
-                      "position": "",
-                      "inlineStyle": "",
-                      "userPermission": {
-                        "delete": true,
-                        "edit": true,
-                        "move": true
-                      },
-                      "hidden": false,
-                      "mobileHidden": false,
-                      "anchor": {
-                        "hash": "",
-                        "top": 0
-                      },
-                      "layout": {},
-                      "type": "image",
-                      "data": {
-                        "src": "http://www-testing.httpeace.com:3400/static/images/icons/technologies/icon_node.png",
-                        "width": "",
-                        "height": "",
-                        "fit": "cover",
-                        "position": "center"
+                    ]
+                  }
+                }
+              },
+              {
+                "_id": "5c9adf042c1a5d11f37410d4",
+                "position": "",
+                "inlineStyle": "",
+                "userPermission": {
+                  "delete": true,
+                  "edit": true,
+                  "move": true
+                },
+                "hidden": false,
+                "mobileHidden": false,
+                "anchor": {
+                  "hash": "",
+                  "top": 0
+                },
+                "layout": {
+                  "marginUnit": "px",
+                  "paddingUnit": "px",
+                  "marginTop": "0",
+                  "marginRight": "0",
+                  "marginBottom": "0",
+                  "marginLeft": "0",
+                  "paddingTop": "20",
+                  "paddingRight": "50",
+                  "paddingBottom": "20",
+                  "paddingLeft": "50",
+                  "backgroundType": "color",
+                  "backgroundColor": "rgba(244,244,244,1)",
+                  "backgroundUri": "",
+                  "backgroundSize": "cover"
+                },
+                "type": "layoutBuilder",
+                "data": {
+                  "columns": "2",
+                  "columnWidths": {
+                    "0": "50.00",
+                    "1": "50.00"
+                  },
+                  "direction": "leftToRight",
+                  "columnRatio": "even",
+                  "widgets": {
+                    "0": [
+                      {
+                        "_id": "5c9adfb02c1a5d11f37410d5",
+                        "position": "",
+                        "inlineStyle": "",
+                        "userPermission": {
+                          "delete": true,
+                          "edit": true,
+                          "move": true
+                        },
+                        "hidden": false,
+                        "mobileHidden": false,
+                        "anchor": {
+                          "hash": "",
+                          "top": 0
+                        },
+                        "layout": {
+                          "marginUnit": "px",
+                          "paddingUnit": "px",
+                          "marginTop": "0",
+                          "marginRight": "-50",
+                          "marginBottom": "0",
+                          "marginLeft": "50",
+                          "paddingTop": "0",
+                          "paddingRight": "0",
+                          "paddingBottom": "0",
+                          "paddingLeft": "0",
+                          "backgroundType": "color",
+                          "backgroundColor": "transparent",
+                          "backgroundUri": "",
+                          "backgroundSize": "cover"
+                        },
+                        "type": "image",
+                        "data": {
+                          "src": "https://www.sketchappsources.com/resources/source-image/calendar-ui-danvineyard.png",
+                          "width": "",
+                          "height": "",
+                          "fit": "cover",
+                          "position": "center"
+                        }
                       }
-                    }
-                  ],
-                  "2": [
-                    {
-                      "_id": "5c99861dd55de26f326f1280",
-                      "position": "",
-                      "inlineStyle": "",
-                      "userPermission": {
-                        "delete": true,
-                        "edit": true,
-                        "move": true
-                      },
-                      "hidden": false,
-                      "mobileHidden": false,
-                      "anchor": {
-                        "hash": "",
-                        "top": 0
-                      },
-                      "layout": {},
-                      "type": "image",
-                      "data": {
-                        "src": "http://www-testing.httpeace.com:3400/static/images/icons/technologies/icon_aspnetcore.png",
-                        "width": "",
-                        "height": "",
-                        "fit": "cover",
-                        "position": "center"
+                    ],
+                    "1": [
+                      {
+                        "_id": "5c9adffd2c1a5d11f37410d6",
+                        "position": "",
+                        "inlineStyle": "",
+                        "userPermission": {
+                          "delete": true,
+                          "edit": true,
+                          "move": true
+                        },
+                        "hidden": false,
+                        "mobileHidden": false,
+                        "anchor": {
+                          "hash": "",
+                          "top": 0
+                        },
+                        "layout": {
+                          "marginUnit": "px",
+                          "paddingUnit": "px",
+                          "marginTop": "80",
+                          "marginRight": "0",
+                          "marginBottom": "0",
+                          "marginLeft": "0",
+                          "paddingTop": "0",
+                          "paddingRight": "0",
+                          "paddingBottom": "0",
+                          "paddingLeft": "0",
+                          "backgroundType": "color",
+                          "backgroundColor": "transparent",
+                          "backgroundUri": "",
+                          "backgroundSize": "cover"
+                        },
+                        "type": "text",
+                        "data": {
+                          "text": "Speed Transaction Accurate RoutePlanning \nOne Centralized Platform",
+                          "textAlign": "center",
+                          "verticalAlign": "center",
+                          "heading": "h4"
+                        }
                       }
-                    }
-                  ],
-                  "3": [
-                    {
-                      "_id": "5c998631d55de26f326f1281",
-                      "position": "",
-                      "inlineStyle": "",
-                      "userPermission": {
-                        "delete": true,
-                        "edit": true,
-                        "move": true
-                      },
-                      "hidden": false,
-                      "mobileHidden": false,
-                      "anchor": {
-                        "hash": "",
-                        "top": 0
-                      },
-                      "layout": {},
-                      "type": "image",
-                      "data": {
-                        "src": "http://www-testing.httpeace.com:3400/static/images/icons/technologies/icon_aspnetmvc.png",
-                        "width": "",
-                        "height": "",
-                        "fit": "cover",
-                        "position": "center"
+                    ],
+                    "2": []
+                  }
+                }
+              },
+              {
+                "_id": "5c9b229cdfaaec2444662762",
+                "position": "",
+                "inlineStyle": "",
+                "userPermission": {
+                  "delete": true,
+                  "edit": true,
+                  "move": true
+                },
+                "hidden": false,
+                "mobileHidden": false,
+                "anchor": {
+                  "hash": "",
+                  "top": 0
+                },
+                "layout": {
+                  "marginUnit": "px",
+                  "paddingUnit": "px",
+                  "marginTop": "30",
+                  "marginRight": "50",
+                  "marginBottom": "0",
+                  "marginLeft": "50",
+                  "paddingTop": "0",
+                  "paddingRight": "0",
+                  "paddingBottom": "0",
+                  "paddingLeft": "0",
+                  "backgroundType": "color",
+                  "backgroundColor": "transparent",
+                  "backgroundUri": "",
+                  "backgroundSize": "cover"
+                },
+                "type": "layoutBuilder",
+                "data": {
+                  "columns": "2",
+                  "columnWidths": {
+                    "0": "33.33",
+                    "1": "66.66"
+                  },
+                  "direction": "leftToRight",
+                  "columnRatio": "even",
+                  "widgets": {
+                    "0": [
+                      {
+                        "_id": "5c9b229edfaaec2444662763",
+                        "position": "",
+                        "inlineStyle": "",
+                        "userPermission": {
+                          "delete": true,
+                          "edit": true,
+                          "move": true
+                        },
+                        "hidden": false,
+                        "mobileHidden": false,
+                        "anchor": {
+                          "hash": "",
+                          "top": 0
+                        },
+                        "layout": {},
+                        "type": "tabMenu",
+                        "data": {
+                          "tabId": "tab1",
+                          "horizontal": false,
+                          "items": [
+                            {
+                              "id": "truck_management",
+                              "name": "車隊管理"
+                            },
+                            {
+                              "id": "in_out_order_management",
+                              "name": "出入庫訂單管理"
+                            },
+                            {
+                              "id": "security_process",
+                              "name": "多重建撿獲流程"
+                            },
+                            {
+                              "id": "product_tracking",
+                              "name": "貨品狀態追蹤"
+                            }
+                          ],
+                          "horizontalPosition": "left"
+                        }
                       }
-                    }
-                  ],
-                  "4": [
-                    {
-                      "_id": "5c99863cd55de26f326f1282",
-                      "position": "",
-                      "inlineStyle": "",
-                      "userPermission": {
-                        "delete": true,
-                        "edit": true,
-                        "move": true
-                      },
-                      "hidden": false,
-                      "mobileHidden": false,
-                      "anchor": {
-                        "hash": "",
-                        "top": 0
-                      },
-                      "layout": {},
-                      "type": "image",
-                      "data": {
-                        "src": "http://www-testing.httpeace.com:3400/static/images/icons/technologies/icon_express.png",
-                        "width": "",
-                        "height": "",
-                        "fit": "cover",
-                        "position": "center"
+                    ],
+                    "1": [
+                      {
+                        "_id": "5ca1d10fd944926428ef5f17",
+                        "position": "",
+                        "inlineStyle": "",
+                        "userPermission": {
+                          "delete": true,
+                          "edit": true,
+                          "move": true
+                        },
+                        "hidden": false,
+                        "mobileHidden": false,
+                        "anchor": {
+                          "hash": "",
+                          "top": 0
+                        },
+                        "layout": {},
+                        "type": "tabContent",
+                        "data": {
+                          "tabId": "tab1",
+                          "contents": [
+                            {
+                              "id": "truck_management",
+                              "widgets": [
+                                {
+                                  "_id": "5ca1d237d944926428ef5f18",
+                                  "position": "",
+                                  "inlineStyle": "",
+                                  "userPermission": {
+                                    "delete": true,
+                                    "edit": true,
+                                    "move": true
+                                  },
+                                  "hidden": false,
+                                  "mobileHidden": false,
+                                  "anchor": {
+                                    "hash": "",
+                                    "top": 0
+                                  },
+                                  "layout": {},
+                                  "type": "layoutBuilder",
+                                  "data": {
+                                    "columns": "2",
+                                    "columnWidths": {
+                                      "0": "50.00",
+                                      "1": "50.00"
+                                    },
+                                    "columnRatio": "even",
+                                    "direction": "leftToRight",
+                                    "widgets": {
+                                      "0": [
+                                        {
+                                          "_id": "5ca1d23fd944926428ef5f19",
+                                          "position": "",
+                                          "inlineStyle": "",
+                                          "userPermission": {
+                                            "delete": true,
+                                            "edit": true,
+                                            "move": true
+                                          },
+                                          "hidden": false,
+                                          "mobileHidden": false,
+                                          "anchor": {
+                                            "hash": "",
+                                            "top": 0
+                                          },
+                                          "layout": {},
+                                          "type": "list",
+                                          "data": {
+                                            "type": "circle",
+                                            "items": [
+                                              {
+                                                "text": "客户资料库"
+                                              },
+                                              {
+                                                "text": "訂單分類"
+                                              },
+                                              {
+                                                "text": "貨品資料庫"
+                                              },
+                                              {
+                                                "text": "貨品資料庫"
+                                              },
+                                              {
+                                                "text": "路線管理"
+                                              },
+                                              {
+                                                "text": "路線管理"
+                                              },
+                                              {
+                                                "text": "路線管理"
+                                              }
+                                            ]
+                                          }
+                                        }
+                                      ],
+                                      "1": [
+                                        {
+                                          "_id": "5ca1d26ed944926428ef5f1a",
+                                          "position": "",
+                                          "inlineStyle": "",
+                                          "userPermission": {
+                                            "delete": true,
+                                            "edit": true,
+                                            "move": true
+                                          },
+                                          "hidden": false,
+                                          "mobileHidden": false,
+                                          "anchor": {
+                                            "hash": "",
+                                            "top": 0
+                                          },
+                                          "layout": {},
+                                          "type": "list",
+                                          "data": {
+                                            "type": "circle",
+                                            "items": [
+                                              {
+                                                "text": "订单"
+                                              },
+                                              {
+                                                "text": "司機資料庫"
+                                              },
+                                              {
+                                                "text": "出貨單"
+                                              },
+                                              {
+                                                "text": "安排車次"
+                                              },
+                                              {
+                                                "text": "報價單"
+                                              },
+                                              {
+                                                "text": "貨物轉運"
+                                              },
+                                              {
+                                                "text": "員工權限管理"
+                                              }
+                                            ]
+                                          }
+                                        }
+                                      ],
+                                      "2": []
+                                    }
+                                  }
+                                }
+                              ]
+                            },
+                            {
+                              "id": "in_out_order_management",
+                              "widgets": []
+                            },
+                            {
+                              "id": "security_process",
+                              "widgets": []
+                            },
+                            {
+                              "id": "product_tracking",
+                              "widgets": []
+                            }
+                          ]
+                        }
                       }
-                    }
-                  ]
+                    ],
+                    "2": []
+                  }
                 }
               }
-            },
-            {
-              "_id": "5c99864fd55de26f326f1284",
-              "position": "",
-              "inlineStyle": "",
-              "userPermission": {
-                "delete": true,
-                "edit": true,
-                "move": true
-              },
-              "hidden": false,
-              "mobileHidden": false,
-              "anchor": {
-                "hash": "",
-                "top": 0
-              },
-              "layout": {},
-              "type": "text",
-              "data": {
-                "text": "工具",
-                "textAlign": "center",
-                "heading": "h2"
-              }
-            },
-            {
-              "_id": "5c99864bd55de26f326f1283",
-              "position": "",
-              "inlineStyle": "",
-              "userPermission": {
-                "delete": true,
-                "edit": true,
-                "move": true
-              },
-              "hidden": false,
-              "mobileHidden": false,
-              "anchor": {
-                "hash": "",
-                "top": 0
-              },
-              "layout": {
-                "marginUnit": "px",
-                "paddingUnit": "px",
-                "marginTop": "0",
-                "marginRight": "0",
-                "marginBottom": "0",
-                "marginLeft": "0",
-                "paddingTop": "0",
-                "paddingRight": "50",
-                "paddingBottom": "0",
-                "paddingLeft": "50",
-                "backgroundType": "color",
-                "backgroundColor": "transparent",
-                "backgroundUri": "",
-                "backgroundSize": "cover"
-              },
-              "type": "layoutBuilder",
-              "data": {
-                "columns": "4",
-                "columnWidths": {
-                  "0": "25.00",
-                  "1": "25.00",
-                  "2": "25.00",
-                  "3": "25.00"
+            ]
+          },
+          {
+            "id": "retail_ecommerce",
+            "widgets": [
+              {
+                "_id": "5ca192fa64f2b33616540bd4",
+                "position": "",
+                "inlineStyle": "",
+                "userPermission": {
+                  "delete": true,
+                  "edit": true,
+                  "move": true
                 },
-                "columnRatio": "even",
-                "widgets": {
-                  "0": [
-                    {
-                      "_id": "5c99865ad55de26f326f1285",
-                      "position": "",
-                      "inlineStyle": "",
-                      "userPermission": {
-                        "delete": true,
-                        "edit": true,
-                        "move": true
-                      },
-                      "hidden": false,
-                      "mobileHidden": false,
-                      "anchor": {
-                        "hash": "",
-                        "top": 0
-                      },
-                      "layout": {},
-                      "type": "image",
-                      "data": {
-                        "src": "http://www-testing.httpeace.com:3400/static/images/icons/technologies/icon_vscode.png",
-                        "width": "",
-                        "height": "",
-                        "fit": "cover",
-                        "position": "center"
+                "hidden": false,
+                "mobileHidden": false,
+                "anchor": {
+                  "hash": "",
+                  "top": 0
+                },
+                "layout": {
+                  "marginUnit": "px",
+                  "paddingUnit": "px",
+                  "marginTop": "0",
+                  "marginRight": "0",
+                  "marginBottom": "0",
+                  "marginLeft": "0",
+                  "paddingTop": "30",
+                  "paddingRight": "50",
+                  "paddingBottom": "30",
+                  "paddingLeft": "50",
+                  "backgroundType": "color",
+                  "backgroundColor": "transparent",
+                  "backgroundUri": "",
+                  "backgroundSize": "cover"
+                },
+                "type": "layoutBuilder",
+                "data": {
+                  "columns": 3,
+                  "columnWidths": {
+                    "0": 33.33,
+                    "1": 33.33,
+                    "2": 33.33
+                  },
+                  "columnRatio": "even",
+                  "direction": "leftToRight",
+                  "widgets": {
+                    "0": [
+                      {
+                        "_id": "5ca1931464f2b33616540bd5",
+                        "position": "",
+                        "inlineStyle": "",
+                        "userPermission": {
+                          "delete": true,
+                          "edit": true,
+                          "move": true
+                        },
+                        "hidden": false,
+                        "mobileHidden": false,
+                        "anchor": {
+                          "hash": "",
+                          "top": 0
+                        },
+                        "layout": {},
+                        "type": "image",
+                        "data": {
+                          "src": "https://cnet4.cbsistatic.com/img/m-iMu4ywo-E86Wo2B4ey3LUKXbM=/970x0/2019/01/12/dfaa83f9-b203-453a-a767-f673ebf3fdd0/gettyimages-914637584.jpg",
+                          "width": "",
+                          "height": "",
+                          "fit": "cover",
+                          "position": "center"
+                        }
                       }
-                    }
-                  ],
-                  "1": [
-                    {
-                      "_id": "5c99866dd55de26f326f1287",
-                      "position": "",
-                      "inlineStyle": "",
-                      "userPermission": {
-                        "delete": true,
-                        "edit": true,
-                        "move": true
-                      },
-                      "hidden": false,
-                      "mobileHidden": false,
-                      "anchor": {
-                        "hash": "",
-                        "top": 0
-                      },
-                      "layout": {},
-                      "type": "image",
-                      "data": {
-                        "src": "http://www-testing.httpeace.com:3400/static/images/icons/technologies/icon_webstorm.png",
-                        "width": "",
-                        "height": "",
-                        "fit": "cover",
-                        "position": "center"
+                    ],
+                    "1": [
+                      {
+                        "_id": "5ca1932e64f2b33616540bd6",
+                        "position": "",
+                        "inlineStyle": "",
+                        "userPermission": {
+                          "delete": true,
+                          "edit": true,
+                          "move": true
+                        },
+                        "hidden": false,
+                        "mobileHidden": false,
+                        "anchor": {
+                          "hash": "",
+                          "top": 0
+                        },
+                        "layout": {},
+                        "type": "image",
+                        "data": {
+                          "src": "https://images.wsj.net/im-26341?width=620&aspect_ratio=1.5",
+                          "width": "",
+                          "height": "",
+                          "fit": "cover",
+                          "position": "center"
+                        }
                       }
-                    }
-                  ],
-                  "2": [
-                    {
-                      "_id": "5c99867fd55de26f326f1288",
-                      "position": "",
-                      "inlineStyle": "",
-                      "userPermission": {
-                        "delete": true,
-                        "edit": true,
-                        "move": true
-                      },
-                      "hidden": false,
-                      "mobileHidden": false,
-                      "anchor": {
-                        "hash": "",
-                        "top": 0
-                      },
-                      "layout": {},
-                      "type": "image",
-                      "data": {
-                        "src": "http://www-testing.httpeace.com:3400/static/images/icons/technologies/icon_xcode.png",
-                        "width": "",
-                        "height": "",
-                        "fit": "cover",
-                        "position": "center"
+                    ],
+                    "2": [
+                      {
+                        "_id": "5ca1934264f2b33616540bd7",
+                        "position": "",
+                        "inlineStyle": "",
+                        "userPermission": {
+                          "delete": true,
+                          "edit": true,
+                          "move": true
+                        },
+                        "hidden": false,
+                        "mobileHidden": false,
+                        "anchor": {
+                          "hash": "",
+                          "top": 0
+                        },
+                        "layout": {},
+                        "type": "image",
+                        "data": {
+                          "src": "https://singularityhub.com/wp-content/uploads/2018/02/spacex-falcon-heavy-11-1068x601.jpg",
+                          "width": "",
+                          "height": "",
+                          "fit": "cover",
+                          "position": "center"
+                        }
                       }
-                    }
-                  ],
-                  "3": [
-                    {
-                      "_id": "5c998691d55de26f326f1289",
-                      "position": "",
-                      "inlineStyle": "",
-                      "userPermission": {
-                        "delete": true,
-                        "edit": true,
-                        "move": true
-                      },
-                      "hidden": false,
-                      "mobileHidden": false,
-                      "anchor": {
-                        "hash": "",
-                        "top": 0
-                      },
-                      "layout": {},
-                      "type": "image",
-                      "data": {
-                        "src": "http://www-testing.httpeace.com:3400/static/images/icons/technologies/icon_androidstudio.png",
-                        "width": "",
-                        "height": "",
-                        "fit": "cover",
-                        "position": "center"
-                      }
-                    }
-                  ]
+                    ]
+                  }
                 }
               }
-            },
-            {
-              "_id": "5c9987126406c467a69216bb",
-              "position": "",
-              "inlineStyle": "",
-              "userPermission": {
-                "delete": true,
-                "edit": true,
-                "move": true
-              },
-              "hidden": false,
-              "mobileHidden": false,
-              "anchor": {
-                "hash": "",
-                "top": 0
-              },
-              "layout": {},
-              "type": "text",
-              "data": {
-                "text": "數據庫",
-                "textAlign": "center",
-                "heading": "h2"
-              }
-            },
-            {
-              "_id": "5c99876a150fb3572ad791cf",
-              "position": "",
-              "inlineStyle": "",
-              "userPermission": {
-                "delete": true,
-                "edit": true,
-                "move": true
-              },
-              "hidden": false,
-              "mobileHidden": false,
-              "anchor": {
-                "hash": "",
-                "top": 0
-              },
-              "layout": {
-                "marginUnit": "px",
-                "paddingUnit": "px",
-                "marginTop": "0",
-                "marginRight": "0",
-                "marginBottom": "0",
-                "marginLeft": "0",
-                "paddingTop": "0",
-                "paddingRight": "50",
-                "paddingBottom": "0",
-                "paddingLeft": "50",
-                "backgroundType": "color",
-                "backgroundColor": "transparent",
-                "backgroundUri": "",
-                "backgroundSize": "cover"
-              },
-              "type": "layoutBuilder",
-              "data": {
-                "columns": "4",
-                "columnWidths": {
-                  "0": "25.00",
-                  "1": "25.00",
-                  "2": "25.00",
-                  "3": "25.00"
-                },
-                "columnRatio": "even",
-                "widgets": {
-                  "0": [
-                    {
-                      "_id": "5c99877c150fb3572ad791d0",
-                      "position": "",
-                      "inlineStyle": "",
-                      "userPermission": {
-                        "delete": true,
-                        "edit": true,
-                        "move": true
-                      },
-                      "hidden": false,
-                      "mobileHidden": false,
-                      "anchor": {
-                        "hash": "",
-                        "top": 0
-                      },
-                      "layout": {},
-                      "type": "image",
-                      "data": {
-                        "src": "http://www-testing.httpeace.com:3400/static/images/icons/technologies/icon_mysql.png",
-                        "width": "",
-                        "height": "",
-                        "fit": "cover",
-                        "position": "center"
-                      }
-                    }
-                  ],
-                  "1": [
-                    {
-                      "_id": "5c99878c150fb3572ad791d1",
-                      "position": "",
-                      "inlineStyle": "",
-                      "userPermission": {
-                        "delete": true,
-                        "edit": true,
-                        "move": true
-                      },
-                      "hidden": false,
-                      "mobileHidden": false,
-                      "anchor": {
-                        "hash": "",
-                        "top": 0
-                      },
-                      "layout": {},
-                      "type": "image",
-                      "data": {
-                        "src": "http://www-testing.httpeace.com:3400/static/images/icons/technologies/icon_mongodb.png",
-                        "width": "",
-                        "height": "",
-                        "fit": "cover",
-                        "position": "center"
-                      }
-                    }
-                  ],
-                  "2": [
-                    {
-                      "_id": "5c9987b5150fb3572ad791d2",
-                      "position": "",
-                      "inlineStyle": "",
-                      "userPermission": {
-                        "delete": true,
-                        "edit": true,
-                        "move": true
-                      },
-                      "hidden": false,
-                      "mobileHidden": false,
-                      "anchor": {
-                        "hash": "",
-                        "top": 0
-                      },
-                      "layout": {},
-                      "type": "image",
-                      "data": {
-                        "src": "http://www-testing.httpeace.com:3400/static/images/icons/technologies/icon_firebase.png",
-                        "width": "",
-                        "height": "",
-                        "fit": "cover",
-                        "position": "center"
-                      }
-                    }
-                  ],
-                  "3": [
-                    {
-                      "_id": "5c9987c0150fb3572ad791d3",
-                      "position": "",
-                      "inlineStyle": "",
-                      "userPermission": {
-                        "delete": true,
-                        "edit": true,
-                        "move": true
-                      },
-                      "hidden": false,
-                      "mobileHidden": false,
-                      "anchor": {
-                        "hash": "",
-                        "top": 0
-                      },
-                      "layout": {},
-                      "type": "image",
-                      "data": {
-                        "src": "http://www-testing.httpeace.com:3400/static/images/icons/technologies/icon_redis.png",
-                        "width": "",
-                        "height": "",
-                        "fit": "cover",
-                        "position": "center"
-                      }
-                    }
-                  ]
-                }
-              }
-            },
-            {
-              "_id": "5c998821150fb3572ad791d5",
-              "position": "",
-              "inlineStyle": "",
-              "userPermission": {
-                "delete": true,
-                "edit": true,
-                "move": true
-              },
-              "hidden": false,
-              "mobileHidden": false,
-              "anchor": {
-                "hash": "",
-                "top": 0
-              },
-              "layout": {},
-              "type": "text",
-              "data": {
-                "text": "操作系統 & 發布",
-                "textAlign": "center",
-                "heading": "h2"
-              }
-            },
-            {
-              "_id": "5c99881e150fb3572ad791d4",
-              "position": "",
-              "inlineStyle": "",
-              "userPermission": {
-                "delete": true,
-                "edit": true,
-                "move": true
-              },
-              "hidden": false,
-              "mobileHidden": false,
-              "anchor": {
-                "hash": "",
-                "top": 0
-              },
-              "layout": {
-                "marginUnit": "px",
-                "paddingUnit": "px",
-                "marginTop": "0",
-                "marginRight": "0",
-                "marginBottom": "0",
-                "marginLeft": "0",
-                "paddingTop": "0",
-                "paddingRight": "50",
-                "paddingBottom": "0",
-                "paddingLeft": "50",
-                "backgroundType": "color",
-                "backgroundColor": "transparent",
-                "backgroundUri": "",
-                "backgroundSize": "cover"
-              },
-              "type": "layoutBuilder",
-              "data": {
-                "columns": "4",
-                "columnWidths": {
-                  "0": "25.00",
-                  "1": "25.00",
-                  "2": "25.00",
-                  "3": "25.00"
-                },
-                "columnRatio": "even",
-                "widgets": {
-                  "0": [
-                    {
-                      "_id": "5c99884b150fb3572ad791d6",
-                      "position": "",
-                      "inlineStyle": "",
-                      "userPermission": {
-                        "delete": true,
-                        "edit": true,
-                        "move": true
-                      },
-                      "hidden": false,
-                      "mobileHidden": false,
-                      "anchor": {
-                        "hash": "",
-                        "top": 0
-                      },
-                      "layout": {},
-                      "type": "image",
-                      "data": {
-                        "src": "http://www-testing.httpeace.com:3400/static/images/icons/technologies/icon_linux.png",
-                        "width": "",
-                        "height": "",
-                        "fit": "cover",
-                        "position": "center"
-                      }
-                    }
-                  ],
-                  "1": [
-                    {
-                      "_id": "5c998858150fb3572ad791d7",
-                      "position": "",
-                      "inlineStyle": "",
-                      "userPermission": {
-                        "delete": true,
-                        "edit": true,
-                        "move": true
-                      },
-                      "hidden": false,
-                      "mobileHidden": false,
-                      "anchor": {
-                        "hash": "",
-                        "top": 0
-                      },
-                      "layout": {},
-                      "type": "image",
-                      "data": {
-                        "src": "http://www-testing.httpeace.com:3400/static/images/icons/technologies/icon_windowserver.png",
-                        "width": "",
-                        "height": "",
-                        "fit": "cover",
-                        "position": "center"
-                      }
-                    }
-                  ],
-                  "2": [
-                    {
-                      "_id": "5c99885f150fb3572ad791d8",
-                      "position": "",
-                      "inlineStyle": "",
-                      "userPermission": {
-                        "delete": true,
-                        "edit": true,
-                        "move": true
-                      },
-                      "hidden": false,
-                      "mobileHidden": false,
-                      "anchor": {
-                        "hash": "",
-                        "top": 0
-                      },
-                      "layout": {},
-                      "type": "image",
-                      "data": {
-                        "src": "http://www-testing.httpeace.com:3400/static/images/icons/technologies/icon_docker.png",
-                        "width": "",
-                        "height": "",
-                        "fit": "cover",
-                        "position": "center"
-                      }
-                    }
-                  ],
-                  "3": [
-                    {
-                      "_id": "5c998867150fb3572ad791d9",
-                      "position": "",
-                      "inlineStyle": "",
-                      "userPermission": {
-                        "delete": true,
-                        "edit": true,
-                        "move": true
-                      },
-                      "hidden": false,
-                      "mobileHidden": false,
-                      "anchor": {
-                        "hash": "",
-                        "top": 0
-                      },
-                      "layout": {},
-                      "type": "image",
-                      "data": {
-                        "src": "http://www-testing.httpeace.com:3400/static/images/icons/technologies/icon_kubernetes.png",
-                        "width": "",
-                        "height": "",
-                        "fit": "cover",
-                        "position": "center"
-                      }
-                    }
-                  ]
-                }
-              }
-            },
-            {
-              "_id": "5c9988d0150fb3572ad791da",
-              "position": "",
-              "inlineStyle": "",
-              "userPermission": {
-                "delete": true,
-                "edit": true,
-                "move": true
-              },
-              "hidden": false,
-              "mobileHidden": false,
-              "anchor": {
-                "hash": "",
-                "top": 0
-              },
-              "layout": {},
-              "type": "text",
-              "data": {
-                "text": "設計",
-                "textAlign": "center",
-                "heading": "h2"
-              }
-            },
-            {
-              "_id": "5c9988d2150fb3572ad791db",
-              "position": "",
-              "inlineStyle": "",
-              "userPermission": {
-                "delete": true,
-                "edit": true,
-                "move": true
-              },
-              "hidden": false,
-              "mobileHidden": false,
-              "anchor": {
-                "hash": "",
-                "top": 0
-              },
-              "layout": {
-                "marginUnit": "px",
-                "paddingUnit": "px",
-                "marginTop": "0",
-                "marginRight": "0",
-                "marginBottom": "0",
-                "marginLeft": "0",
-                "paddingTop": "0",
-                "paddingRight": "50",
-                "paddingBottom": "0",
-                "paddingLeft": "50",
-                "backgroundType": "color",
-                "backgroundColor": "transparent",
-                "backgroundUri": "",
-                "backgroundSize": "cover"
-              },
-              "type": "layoutBuilder",
-              "data": {
-                "columns": "4",
-                "columnWidths": {
-                  "0": "25.00",
-                  "1": "25.00",
-                  "2": "25.00",
-                  "3": "25.00"
-                },
-                "columnRatio": "even",
-                "widgets": {
-                  "0": [
-                    {
-                      "_id": "5c9988d5150fb3572ad791dc",
-                      "position": "",
-                      "inlineStyle": "",
-                      "userPermission": {
-                        "delete": true,
-                        "edit": true,
-                        "move": true
-                      },
-                      "hidden": false,
-                      "mobileHidden": false,
-                      "anchor": {
-                        "hash": "",
-                        "top": 0
-                      },
-                      "layout": {},
-                      "type": "image",
-                      "data": {
-                        "src": "http://www-testing.httpeace.com:3400/static/images/icons/technologies/icon_sketch.png",
-                        "width": "",
-                        "height": "",
-                        "fit": "cover",
-                        "position": "center"
-                      }
-                    }
-                  ],
-                  "1": [
-                    {
-                      "_id": "5c9988df150fb3572ad791dd",
-                      "position": "",
-                      "inlineStyle": "",
-                      "userPermission": {
-                        "delete": true,
-                        "edit": true,
-                        "move": true
-                      },
-                      "hidden": false,
-                      "mobileHidden": false,
-                      "anchor": {
-                        "hash": "",
-                        "top": 0
-                      },
-                      "layout": {},
-                      "type": "image",
-                      "data": {
-                        "src": "http://www-testing.httpeace.com:3400/static/images/icons/technologies/icon_origami.png",
-                        "width": "",
-                        "height": "",
-                        "fit": "cover",
-                        "position": "center"
-                      }
-                    }
-                  ],
-                  "2": [
-                    {
-                      "_id": "5c9988e8150fb3572ad791de",
-                      "position": "",
-                      "inlineStyle": "",
-                      "userPermission": {
-                        "delete": true,
-                        "edit": true,
-                        "move": true
-                      },
-                      "hidden": false,
-                      "mobileHidden": false,
-                      "anchor": {
-                        "hash": "",
-                        "top": 0
-                      },
-                      "layout": {},
-                      "type": "image",
-                      "data": {
-                        "src": "http://www-testing.httpeace.com:3400/static/images/icons/technologies/icon_invision.png",
-                        "width": "",
-                        "height": "",
-                        "fit": "cover",
-                        "position": "center"
-                      }
-                    }
-                  ],
-                  "3": [
-                    {
-                      "_id": "5c998939150fb3572ad791df",
-                      "position": "",
-                      "inlineStyle": "",
-                      "userPermission": {
-                        "delete": true,
-                        "edit": true,
-                        "move": true
-                      },
-                      "hidden": false,
-                      "mobileHidden": false,
-                      "anchor": {
-                        "hash": "",
-                        "top": 0
-                      },
-                      "layout": {},
-                      "type": "image",
-                      "data": {
-                        "src": "http://www-testing.httpeace.com:3400/static/images/icons/technologies/icon_photoshop.png",
-                        "width": "",
-                        "height": "",
-                        "fit": "cover",
-                        "position": "center"
-                      }
-                    }
-                  ]
-                }
-              }
-            },
-            {
-              "_id": "5c998948150fb3572ad791e0",
-              "position": "",
-              "inlineStyle": "",
-              "userPermission": {
-                "delete": true,
-                "edit": true,
-                "move": true
-              },
-              "hidden": false,
-              "mobileHidden": false,
-              "anchor": {
-                "hash": "",
-                "top": 0
-              },
-              "layout": {},
-              "type": "text",
-              "data": {
-                "text": "雲端平台",
-                "textAlign": "center",
-                "heading": "h2"
-              }
-            },
-            {
-              "_id": "5c998950150fb3572ad791e1",
-              "position": "",
-              "inlineStyle": "",
-              "userPermission": {
-                "delete": true,
-                "edit": true,
-                "move": true
-              },
-              "hidden": false,
-              "mobileHidden": false,
-              "anchor": {
-                "hash": "",
-                "top": 0
-              },
-              "layout": {
-                "marginUnit": "px",
-                "paddingUnit": "px",
-                "marginTop": "0",
-                "marginRight": "0",
-                "marginBottom": "0",
-                "marginLeft": "0",
-                "paddingTop": "0",
-                "paddingRight": "50",
-                "paddingBottom": "0",
-                "paddingLeft": "50",
-                "backgroundType": "color",
-                "backgroundColor": "transparent",
-                "backgroundUri": "",
-                "backgroundSize": "cover"
-              },
-              "type": "layoutBuilder",
-              "data": {
-                "columns": "4",
-                "columnWidths": {
-                  "0": "25.00",
-                  "1": "25.00",
-                  "2": "25.00",
-                  "3": "25.00"
-                },
-                "columnRatio": "even",
-                "widgets": {
-                  "0": [
-                    {
-                      "_id": "5c99895f150fb3572ad791e2",
-                      "position": "",
-                      "inlineStyle": "",
-                      "userPermission": {
-                        "delete": true,
-                        "edit": true,
-                        "move": true
-                      },
-                      "hidden": false,
-                      "mobileHidden": false,
-                      "anchor": {
-                        "hash": "",
-                        "top": 0
-                      },
-                      "layout": {},
-                      "type": "image",
-                      "data": {
-                        "src": "http://www-testing.httpeace.com:3400/static/images/icons/technologies/icon_aws.png",
-                        "width": "",
-                        "height": "",
-                        "fit": "cover",
-                        "position": "center"
-                      }
-                    }
-                  ],
-                  "1": [
-                    {
-                      "_id": "5c998966150fb3572ad791e3",
-                      "position": "",
-                      "inlineStyle": "",
-                      "userPermission": {
-                        "delete": true,
-                        "edit": true,
-                        "move": true
-                      },
-                      "hidden": false,
-                      "mobileHidden": false,
-                      "anchor": {
-                        "hash": "",
-                        "top": 0
-                      },
-                      "layout": {},
-                      "type": "image",
-                      "data": {
-                        "src": "http://www-testing.httpeace.com:3400/static/images/icons/technologies/icon_azure.png",
-                        "width": "",
-                        "height": "",
-                        "fit": "cover",
-                        "position": "center"
-                      }
-                    }
-                  ],
-                  "2": [
-                    {
-                      "_id": "5c99896a150fb3572ad791e4",
-                      "position": "",
-                      "inlineStyle": "",
-                      "userPermission": {
-                        "delete": true,
-                        "edit": true,
-                        "move": true
-                      },
-                      "hidden": false,
-                      "mobileHidden": false,
-                      "anchor": {
-                        "hash": "",
-                        "top": 0
-                      },
-                      "layout": {},
-                      "type": "image",
-                      "data": {
-                        "src": "http://www-testing.httpeace.com:3400/static/images/icons/technologies/icon_aliyun.png",
-                        "width": "",
-                        "height": "",
-                        "fit": "cover",
-                        "position": "center"
-                      }
-                    }
-                  ],
-                  "3": [
-                    {
-                      "_id": "5c998977150fb3572ad791e5",
-                      "position": "",
-                      "inlineStyle": "",
-                      "userPermission": {
-                        "delete": true,
-                        "edit": true,
-                        "move": true
-                      },
-                      "hidden": false,
-                      "mobileHidden": false,
-                      "anchor": {
-                        "hash": "",
-                        "top": 0
-                      },
-                      "layout": {},
-                      "type": "image",
-                      "data": {
-                        "src": "http://www-testing.httpeace.com:3400/static/images/icons/technologies/icon_googlecloudservice.png",
-                        "width": "",
-                        "height": "",
-                        "fit": "cover",
-                        "position": "center"
-                      }
-                    }
-                  ]
-                }
-              }
-            }
-          ]
-        }
+            ]
+          },
+          {
+            "id": "social_media_mass_user_app",
+            "widgets": []
+          },
+          {
+            "id": "production_storage",
+            "widgets": []
+          }
+        ]
       }
     }
   ]

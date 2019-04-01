@@ -61,6 +61,7 @@ export default class HalfMoonPieDisplay extends React.Component {
                       top: "20%",
                       zIndex: "-1"
                     }}
+                    alt={`Half Moon Pie`}
                   />
                 </div>
               </div>

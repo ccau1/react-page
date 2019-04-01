@@ -3,12 +3,13 @@
  */
 
 import * as React from "react";
+import { ITextWidget, TextDataHeading } from ".";
 
 // import styles from "./styles.css";
 
 export type TextEditorControlProps = {
-  widget: Widget;
-  onChange: { (newWidget: Widget): void };
+  widget: ITextWidget;
+  onChange: { (newWidget: ITextWidget): void };
 };
 
 export default class TextEditorControl extends React.Component<
@@ -31,7 +32,7 @@ export default class TextEditorControl extends React.Component<
               ...widget,
               data: {
                 ...widget.data,
-                heading: ev.target.value
+                heading: ev.target.value as TextDataHeading
               }
             });
           }}
@@ -40,7 +41,9 @@ export default class TextEditorControl extends React.Component<
           <option value="h2">Header 2</option>
           <option value="h3">Header 3</option>
           <option value="h4">Header 4</option>
-        </select>
+          <option value="p">Paragraph</option>
+          <option value="small">Small</option>
+        </select>{" "}
         <button
           className={`${textAlign === "left" ? "selected" : ""}`}
           onClick={ev => {
