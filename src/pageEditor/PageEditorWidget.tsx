@@ -9,6 +9,7 @@ import WidgetFormContext, {
   WidgetFormProviderState
 } from "../contexts/WidgetFormContext";
 import WidgetContext, { WidgetProviderState } from "../contexts/WidgetContext";
+import LocaleContext, { LocaleProviderState } from "../contexts/LocaleContext";
 
 // import styles from "./styles.css";
 
@@ -33,27 +34,38 @@ export class PageEditorWidget extends React.Component<PageEditorWidgetProps> {
           }
           const WidgetEditor = widgetControl.editor;
           return (
-            <WidgetFormContext.Consumer>
-              {({ openForm }: WidgetFormProviderState) => (
-                <div
-                  id={`page_editor_widget_${widget._id}`}
-                  className={`page_editor_widget`}
-                >
-                  <PageEditorWidgetLayout widget={widget} onChange={onChange}>
-                    <PageEditorWidgetControl
-                      widget={widget}
-                      onChange={onChange}
-                    />
-                    <WidgetEditor
-                      widget={widget}
-                      onChange={onChange}
-                      deleteSelf={() => deleteWidget(widget._id)}
-                      openForm={() => openForm(widget._id, onChange)}
-                    />
-                  </PageEditorWidgetLayout>
-                </div>
+            <LocaleContext.Consumer>
+              {({ locale, availableLocales }: LocaleProviderState) => (
+                <WidgetFormContext.Consumer>
+                  {({ openForm }: WidgetFormProviderState) => (
+                    <div
+                      id={`page_editor_widget_${widget._id}`}
+                      className={`page_editor_widget`}
+                    >
+                      <PageEditorWidgetLayout
+                        widget={widget}
+                        onChange={onChange}
+                      >
+                        <PageEditorWidgetControl
+                          widget={widget}
+                          onChange={onChange}
+                          locale={locale}
+                          availableLocales={availableLocales}
+                        />
+                        <WidgetEditor
+                          widget={widget}
+                          onChange={onChange}
+                          locale={locale}
+                          availableLocales={availableLocales}
+                          deleteSelf={() => deleteWidget(widget._id)}
+                          openForm={() => openForm(widget._id, onChange)}
+                        />
+                      </PageEditorWidgetLayout>
+                    </div>
+                  )}
+                </WidgetFormContext.Consumer>
               )}
-            </WidgetFormContext.Consumer>
+            </LocaleContext.Consumer>
           );
         }}
       </WidgetContext.Consumer>

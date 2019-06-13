@@ -26,7 +26,7 @@ export class PageEditorWidgetLayoutBackgroundForm extends React.Component<
     };
 
     return (
-      <div className={`page_editor_widget_layout_background_form`}>
+      <div className={`widget_form page_editor_widget_layout_background_form`}>
         <h3>
           Background
           <a
@@ -79,7 +79,7 @@ export class PageEditorWidgetLayoutBackgroundForm extends React.Component<
           </label>
         </div>
         {layout.backgroundType === "color" && (
-          <div className={`form_field_horizontal`}>
+          <label className={`form_field horizontal`}>
             <label>Background Color: </label>
             <ColorSwatchButton
               color={layout.backgroundColor || "#transparent"}
@@ -93,7 +93,7 @@ export class PageEditorWidgetLayoutBackgroundForm extends React.Component<
                 })
               }
             />
-          </div>
+          </label>
         )}
         {layout.backgroundType === "uri" && (
           <div>

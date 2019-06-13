@@ -75,6 +75,32 @@
   display: flex;
   flex-direction: column;
 }
+.page_editor_left_panel_locale {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.page_editor_locale_select {
+  overflow-y: auto;
+  white-space: nowrap;
+  padding: 10px 0;
+}
+.page_editor_locale_select::-webkit-scrollbar {
+  height: 2px;
+}
+.page_editor_locale_select_item {
+  height: 40px;
+  padding: 10px;
+  line-height: 15pt;
+  display: inline-block;
+  background-color: #fff;
+  border: 1px solid #bdbdbd;
+  box-sizing: border-box;
+}
+.page_editor_locale_select_item.inactive {
+  background-color: rgb(231, 231, 231);
+}
 
 .page_editor_widgets_overview_widget_draggable_wrapper {
   transition: opacity 100ms;
@@ -286,9 +312,10 @@
 .widget_form .form_field {
   width: 400px;
   max-width: 100%;
+  margin: 7px 0;
 }
 .widget_form .form_field label {
-  padding: 10px 10px 0 0;
+  padding: 3px 10px 3px 0;
 }
 .widget_form .form_field.horizontal {
   width: 100%;

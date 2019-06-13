@@ -11,13 +11,15 @@ import WidgetContext, { WidgetProviderState } from "../contexts/WidgetContext";
 export type PageEditorWidgetControlProps = {
   widget: Widget;
   onChange: { (newWidget: Widget): void };
+  locale: string;
+  availableLocales: string[];
 };
 
 export class PageEditorWidgetControl extends React.Component<
   PageEditorWidgetControlProps
 > {
   render() {
-    const { widget, onChange } = this.props;
+    const { widget, onChange, locale, availableLocales } = this.props;
 
     if (!widget) {
       return null;
@@ -39,7 +41,12 @@ export class PageEditorWidgetControl extends React.Component<
                     isWidgetInactive(widget._id) ? " hover_inactive" : ""
                   }`}
                 >
-                  <WidgetEditorControl widget={widget} onChange={onChange} />
+                  <WidgetEditorControl
+                    widget={widget}
+                    onChange={onChange}
+                    locale={locale}
+                    availableLocales={availableLocales}
+                  />
                 </div>
               )}
             </HoverContext.Consumer>
