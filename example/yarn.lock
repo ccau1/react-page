@@ -1399,6 +1399,11 @@ bser@^2.0.0:
   dependencies:
     node-int64 "^0.4.0"
 
+bson-objectid@^1.2.4:
+  version "1.3.1"
+  resolved "https://registry.yarnpkg.com/bson-objectid/-/bson-objectid-1.3.1.tgz#11e4ce4c3419161fd388113781bb62c1dfbce34b"
+  integrity sha512-eQBNQXsisEAXlwiSy8zRNZdW2xDBJaEVkTPbodYR9hGxxtE548Qq7ilYOd8WAQ86xF7NRUdiWSQ1pa/TkKiE2A==
+
 buffer-from@^1.0.0:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/buffer-from/-/buffer-from-1.1.1.tgz#32713bc028f75c02fdb710d7c7bcec1f2c6070ef"
@@ -2307,14 +2312,13 @@ diffie-hellman@^5.0.0:
     miller-rabin "^4.0.0"
     randombytes "^2.0.0"
 
-dnd-core@^7.2.0:
-  version "7.2.0"
-  resolved "https://registry.yarnpkg.com/dnd-core/-/dnd-core-7.2.0.tgz#70d4ab6c0c6f90423c27b1711624b5d834025bf3"
-  integrity sha512-KUCI+m2Q4k3QlWWsiyUu2R/d0nJo3oGHknM/lGOD4u1XPA4O+LJyYe7PQBzY4J6ehaHGoQ/soTUu/KfaLSOL8w==
+dnd-core@^7.1.0, dnd-core@^7.4.4:
+  version "7.7.0"
+  resolved "https://registry.yarnpkg.com/dnd-core/-/dnd-core-7.7.0.tgz#3166aefc8c5b85ca4ade4ae836712a3108975fab"
+  integrity sha512-+YqwflWEY1MEAEl2QiEiRaglYkCwIZryyQwximQGuTOm/ns7fS6Lg/i7OCkrtjM10D5FhArf/VUHIL4ZaRBK0g==
   dependencies:
     asap "^2.0.6"
     invariant "^2.2.4"
-    lodash "^4.17.11"
     redux "^4.0.1"
 
 dns-equal@^1.0.0:
@@ -2423,6 +2427,15 @@ dotenv@4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-4.0.0.tgz#864ef1379aced55ce6f95debecdce179f7a0cd1d"
   integrity sha1-hk7xN5rO1Vzm+V3r7NzhefegzR0=
+
+draft-js@^0.10.5:
+  version "0.10.5"
+  resolved "https://registry.yarnpkg.com/draft-js/-/draft-js-0.10.5.tgz#bfa9beb018fe0533dbb08d6675c371a6b08fa742"
+  integrity sha512-LE6jSCV9nkPhfVX2ggcRLA4FKs6zWq9ceuO/88BpXdNCS7mjRTgs0NsV6piUCJX9YxMsB9An33wnkMmU2sD2Zg==
+  dependencies:
+    fbjs "^0.8.15"
+    immutable "~3.7.4"
+    object-assign "^4.1.0"
 
 duplexer3@^0.1.4:
   version "0.1.4"
@@ -3065,7 +3078,7 @@ fb-watchman@^2.0.0:
   dependencies:
     bser "^2.0.0"
 
-fbjs@^0.8.1:
+fbjs@^0.8.1, fbjs@^0.8.15:
   version "0.8.17"
   resolved "https://registry.yarnpkg.com/fbjs/-/fbjs-0.8.17.tgz#c4d598ead6949112653d6588b01a5cdcd9f90fdd"
   integrity sha1-xNWY6taUkRJlPWWIsBpc3Nn5D90=
@@ -3786,6 +3799,11 @@ ignore@^3.3.3:
   version "3.3.10"
   resolved "https://registry.yarnpkg.com/ignore/-/ignore-3.3.10.tgz#0a97fb876986e8081c631160f8f9f389157f0043"
   integrity sha512-Pgs951kaMm5GXP7MOvxERINe3gsaVjUWFm+UZPSq9xYriQAksyhg0csnS0KXSNRD5NmNdapXEpjxG49+AKh/ug==
+
+immutable@~3.7.4:
+  version "3.7.6"
+  resolved "https://registry.yarnpkg.com/immutable/-/immutable-3.7.6.tgz#13b4d3cb12befa15482a26fe1b2ebae640071e4b"
+  integrity sha1-E7TTyxK++hVIKib+Gy665kAHHks=
 
 import-lazy@^2.1.0:
   version "2.1.0"
@@ -6428,20 +6446,28 @@ react-dev-utils@^5.0.2:
     strip-ansi "3.0.1"
     text-table "0.2.0"
 
-react-dnd-html5-backend@^7.2.0:
-  version "7.2.0"
-  resolved "https://registry.yarnpkg.com/react-dnd-html5-backend/-/react-dnd-html5-backend-7.2.0.tgz#4cde55fb690020d98d7b6f3d4400c56b2ae82dfa"
-  integrity sha512-1cyyiE1TRd7cTtPWvWWNxQdWxpv4ikyrvBn+fJwKqLjsRhhSdjlANZeJBYtBTO7Zf25YLzxVyO17nwFLMdjFAA==
+react-dnd-html5-backend@7.1.0:
+  version "7.1.0"
+  resolved "https://registry.yarnpkg.com/react-dnd-html5-backend/-/react-dnd-html5-backend-7.1.0.tgz#fa4cd9a67078baee1baf4381772072b40281d428"
+  integrity sha512-DcmDSgR6C0VXPIILahfCoX9rr/0Jk+59bH0qRBvwDhvw+aJuK908cekxBTKHj2IJ4bmhR/hh1ab1WsffoulWmQ==
   dependencies:
-    dnd-core "^7.2.0"
+    dnd-core "^7.1.0"
     lodash "^4.17.11"
 
-react-dnd@^7.3.2:
-  version "7.3.2"
-  resolved "https://registry.yarnpkg.com/react-dnd/-/react-dnd-7.3.2.tgz#c8660f0266caf8995b8f5bdea962ce00bc7b664d"
-  integrity sha512-chMQT4y+6CTQdRSpNEl+0JTNevCAkE7TmDewqF2GVejsgdCtVEMz/3SGk+fluMXMYPfhYlMDMHa+xWWO5QfM8Q==
+react-dnd-touch-backend@^0.8.1:
+  version "0.8.3"
+  resolved "https://registry.yarnpkg.com/react-dnd-touch-backend/-/react-dnd-touch-backend-0.8.3.tgz#85d961ec8578dc9efa5b78000ea904d37e01e60f"
+  integrity sha512-LLJlpeJftRreP9ixm3yfd1JEXf+6BeKo5dkfJFHvNSOEOu+FDSwNl5l8uAG0FeD4z2ZVi7RDQ/jUxdjkBV3zBg==
   dependencies:
-    dnd-core "^7.2.0"
+    dnd-core "^7.4.4"
+    invariant "^2.2.4"
+
+react-dnd@7.1.0:
+  version "7.1.0"
+  resolved "https://registry.yarnpkg.com/react-dnd/-/react-dnd-7.1.0.tgz#2a4d01383d821a46e573f56cba727796eb59aaf0"
+  integrity sha512-4rj5+edYIci7Ila+wRWUau6e7N2ddJZElnhB6xw6hM4wLrzMPu1iB7CnKZfe8aTVcmN8Sbs2i4scy1QHcGJilw==
+  dependencies:
+    dnd-core "^7.1.0"
     hoist-non-react-statics "^3.3.0"
     invariant "^2.1.0"
     lodash "^4.17.11"
@@ -6484,8 +6510,17 @@ react-modal@^3.8.1:
     warning "^3.0.0"
 
 "react-page@link:..":
-  version "0.0.0"
-  uid ""
+  version "1.0.0"
+  dependencies:
+    bson-objectid "^1.2.4"
+    draft-js "^0.10.5"
+    react-color "^2.17.0"
+    react-dnd "7.1.0"
+    react-dnd-html5-backend "7.1.0"
+    react-dnd-touch-backend "^0.8.1"
+    react-modal "^3.8.1"
+    react-textarea-autosize "^7.1.0"
+    recompose "^0.30.0"
 
 react-scripts@^1.1.4:
   version "1.1.5"
@@ -8276,9 +8311,9 @@ xtend@^4.0.0:
   integrity sha1-pcbVMr5lbiPbgg77lDofBJmNY68=
 
 y18n@^3.2.1:
-  version "3.2.1"
-  resolved "https://registry.yarnpkg.com/y18n/-/y18n-3.2.1.tgz#6d15fba884c08679c0d77e88e7759e811e07fa41"
-  integrity sha1-bRX7qITAhnnA136I53WegR4H+kE=
+  version "3.2.2"
+  resolved "https://registry.yarnpkg.com/y18n/-/y18n-3.2.2.tgz#85c901bd6470ce71fc4bb723ad209b70f7f28696"
+  integrity sha512-uGZHXkHnhF0XeeAPgnKfPv1bgKAYyVvmNL1xlKsPYZPaIHxGti2hHqvOCQv71XMsLxu1QjergkqogUnms5D3YQ==
 
 yallist@^2.1.2:
   version "2.1.2"
